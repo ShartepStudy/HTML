@@ -1,0 +1,96 @@
+@font-face {
+font-family:'SPIRI___';
+src:url('../fonts/SPIRI___.TTF');
+}
+
+body{
+font-family:'SPIRI___';
+color:#2B0E01;
+background:url('../img/background-pattern.jpg');
+margin:0;
+padding:0;
+}
+
+#wrapper{
+background:url('../img/site-pattern.jpg');
+margin:-110px auto 0px auto;
+padding:0;
+width:916px;
+}
+
+#header{
+width:961px;
+margin:0 auto;
+}
+
+#content{
+height:auto;
+font-size:80%;
+margin:100px 50px 10px 75px;
+}
+
+#content h1{
+font-size:300%
+}
+
+#content img{
+float:left;
+width:35%;
+margin-bottom:50px;
+margin-right:50px;
+display:block;
+}
+
+.cont2{
+height:400px;
+text-align:center;
+}
+
+.cont2 p{
+font-size:110%;
+height:400px;
+text-align:center;
+}
+
+#nav{
+font-size:120%;
+}
+
+#nav table{
+text-align:center;
+padding-top:50px;
+}
+
+#nav a{
+color:#2B0E01;
+text-decoration:none;
+}
+
+#nav a:hover{
+color:#ffffff;
+text-decoration:none;
+}
+
+#nav p{
+margin-left:80px;
+}
+
+#nav p:hover{
+transform:rotateX(90deg);
+transform:scale(1.1);
+margin-left:80px;
+}
+
+#up{
+margin-left:-5px;
+border:none;
+z-index:10;
+top:40%;
+position:fixed;
+}
+
+#footer{
+background:url('../img/footer.png') no-repeat;
+height:100px;
+}
+	

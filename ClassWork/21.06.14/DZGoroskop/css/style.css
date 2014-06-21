@@ -1,0 +1,90 @@
+body {
+    background-color: #1D2C63;
+}
+#wrapper {
+    width: 700px;
+    margin: auto;
+}
+
+#content {
+    text-align: justify;
+    background-color: #1D2C63;
+}
+
+
+#header {
+    height: 400px;
+    background-image: url(../img/goroskop.jpg);
+    background-size: 100%;
+    text-align: end;
+    /*outline:1px solid;*/
+}
+
+
+.zagolovok {
+    font-size:x-large;
+    font-weight:bold;
+}
+.icon {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin-right: 20px;
+    border: 2px solid;
+    border-radius: 20px;
+    border-color: red;
+}
+#iconsWrapper {
+width:650px;
+margin:auto;
+}
+
+.menuIcon {
+    height: 27px;
+    width: 27px;
+    margin-right: 9px;
+    margin-left: 9px;
+    border: 2px solid;
+    border-radius: 20px;  
+    border-color:#000000; 
+}
+
+.menuIcon:hover {
+    height: 27px;
+    width: 27px;
+    margin-right: 9px;
+    margin-left: 9px;
+    border: 2px solid;
+    border-radius: 20px;    
+    border-color:#01A0DB;
+}
+.menuIcon:active {
+    height: 27px;
+    width: 27px;
+    margin-right: 9px;
+    margin-left: 9px;
+    border: 2px solid;
+    border-radius: 20px;    
+    border-color:#8CCAEB;
+}
+
+#footer {
+    font-size: 60%;
+    font-weight: bold;
+    text-align: justify;
+    width: 500px;
+    margin: auto;
+}
+
+p {
+    margin-bottom: 30px;
+    font-family:Verdana;
+    font-size:80%;
+}
+#upArrow {
+height:20px;
+position:fixed;
+bottom:50px;
+left:10px;
+
+}
