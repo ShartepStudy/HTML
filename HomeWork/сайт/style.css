@@ -1,0 +1,186 @@
+/* CSS Document */
+TABLE.table_text {
+	padding-bottom:30px;
+	padding-top:0px;	}
+IMG.in_text{
+	POSITION: relative;
+	FLOAT: left}
+DIV.news_zagolovok{
+	FONT: bold 14pt Arial Black;
+	COLOR: #147277;
+	LETTER-SPACING: 1px;
+	PADDING-TOP: 30px;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 25px; }
+DIV.news_date{
+	FONT: 10pt Arial;
+	COLOR: #455354;
+	LETTER-SPACING: 0px;
+	PADDING-TOP: 0px;
+	PADDING-BOTTOM: 5px;
+	PADDING-LEFT: 25px; }
+DIV.news_text{
+	PADDING-TOP: 0px;
+	PADDING-BOTTOM: 10px; }
+DIV.about_text{
+	font-family: Arial, Helvetica, sans-serif;
+	PADDING-TOP: 0px;
+	PADDING-BOTTOM: 30px; }
+DIV.about2_text{
+	PADDING-TOP: 0px;
+	PADDING-BOTTOM: 0px; }
+DIV.snabjenie_text{
+	FONT: bold 11pt Arial;
+	PADDING-TOP: 0px;
+	PADDING-BOTTOM: 30px; }
+DIV.map_zagolovok{
+	PADDING-TOP: 2px;
+	PADDING-BOTTOM: 2px;
+	COLOR:#000000;
+	TEXT-DECORATION: none;}
+DIV.contact_text1{
+	PADDING-TOP: 20px;
+	PADDING-BOTTOM: 2px; }
+DIV.contact_text2{
+	PADDING-TOP: 2px;
+	PADDING-BOTTOM: 2px; 
+	PADDING-LEFT: 40px}
+
+A.tc_text_class_1280_1024{
+	FONT: 11pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative }
+A.tc_sel_text_class_1280_1024{
+	FONT: bold 11pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative }
+A.tc_text_class_1024_768{
+	FONT: 9pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative }
+A.tc_sel_text_class_1024_768{
+	FONT: bold 9pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative }
+A.tc_text_class_800_600{
+	FONT: 8pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative }
+A.tc_sel_text_class_800_600{
+	FONT: bold 8pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative }
+A.l_text_class_1280_1024{
+	FONT: 12pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative; 
+	LEFT: 10px}
+A.l_text_sel_class_1280_1024{
+	FONT: bold 12pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative; 
+	LEFT: 10px}
+A.l_text_class_1024_768{
+	FONT: 11pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative; 
+	LEFT: 9px}
+A.l_text_sel_class_1024_768{
+	FONT: bold 11pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative; 
+	LEFT: 9px}
+A.l_text_class_800_600{
+	FONT: 10pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative; 
+	LEFT: 8px}
+A.l_text_sel_class_800_600{
+	FONT: bold 10pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative; 
+	LEFT: 8px}
+A.D_text_class{
+	FONT: bold 10pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative; 
+	LEFT: 10px}
+A.D_text_class_800_600{
+	FONT: bold 8pt Arial; 
+	COLOR: #FFFFFF;
+	TEXT-DECORATION: none;
+	LETTER-SPACING: 0px;
+	POSITION: relative; 
+	LEFT: 10px}
+A.map_text{
+	PADDING-TOP: 2px;
+	PADDING-BOTTOM: 2px;
+	COLOR: #000000;
+	TEXT-DECORATION: none;
+	PADDING-LEFT: 30px; }
+IMG{
+	POSITION: absolute }
+INPUT.submit_class_1280_1024{
+	POSITION: absolute;
+	background-image: url(pic/tr_find_1280_1024.gif);
+	width: 20;
+	height: 19;
+	border:0;
+}
+INPUT.submit_class_1024_768{
+	POSITION: absolute;
+	background-image: url(pic/tr_find_1024_768.gif);
+	width: 16;
+	height: 15;
+	border: 0;
+}
+INPUT.submit_class_800_600{
+	POSITION: absolute;
+	background-image: url(pic/tr_find_800_600.gif);
+	width: 14;
+	height: 13;
+	border: 0;
+}
+li { padding-top: 1em; font-size: 13pt; }
+input { font-size: 12pt; }
+.ya-title { font-size: 12pt; }
+.ya-text  { font-size: 9pt; }
+.ya-info  { font-size: 9pt; padding-top: 0.5em; color: green; }
+.ya-info a { font-size: 9pt; padding-top: 0.5em; color: green; }
+body {margin: 0; padding:0; background-color: white; font-family: Verdana, Arial, Geneva CY, Sans-Serif; font-size: 70%; }
+/*TD.news_text{
+	FONT: bold 11pt Arial;
+	COLOR: #0c3b3e;
+	LETTER-SPACING: 0px; }
+/*TD.main_text_class_1024_768{
+	FONT: 11pt Arial; }
+TD.main_text_class_800_600{
+	FONT: 10pt Arial; }
+/*TABLE{
+	POSITION: absolute }*/

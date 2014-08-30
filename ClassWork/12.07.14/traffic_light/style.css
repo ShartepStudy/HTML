@@ -1,0 +1,25 @@
+﻿div#fon {
+    margin: auto;
+    padding: 10px;
+    border-radius:35px;
+    background-color: black;
+    width:105px;
+}
+div.light {
+    margin:auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius:50px;
+    width: 70px;
+    height: 70px;
+    background-color: red;
+}
+div#red {
+    background-color: red;
+}
+div#yellow {
+    background-color: yellow;
+}
+div#green {
+    background-color: green;
+}
