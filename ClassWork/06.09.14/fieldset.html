@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+</head>
+<body>
+
+<style>
+	form {
+		width:350px;
+		font-family: courier new;
+		font-size: 14px;
+	}
+	#button {
+		font-family: courier new;
+		font-size: 14px;		
+	}
+	#me {
+		border: 1px dotted silver;
+		width: 400px;
+	}
+	td {
+		padding-top: 10px;
+	}
+	p {
+		margin: 0px 50px;
+	}
+	#dials td {
+		padding: 0px 25px; 
+	}
+	textarea {
+		margin: 0px 20px; 
+	}
+	details {
+		margin: 0px 30px;
+		color: gray;
+		font-size: 12px;
+	}
+	details p {
+		margin: 0;
+	}
+	#processtext p {
+		margin-left: 27px;		
+	}
+</style>
+
+<form action="#">
+ <fieldset>
+	<legend>Заявка на участие:</legend>
+   
+	<table>
+		
+		<tr>
+			<td><p>ФИО: </p></td>
+			<td><input type="text"/></td>
+		</tr>
+		
+		<tr>
+			<td><p>Дата: </p></td>
+			<td><input type="date"/></td>
+		</tr>
+		
+		<tr>
+			<td><p>Пол: </p></td>
+			<td><input name="sex" type="radio"/>Мужской <input name="sex" type="radio"/>Женский </td>
+		</tr>
+		
+		<tr>
+			<td><p>Семейное <br/>положение: </p></td>
+			<td><input name="fam" type="radio"/>Один <br/>
+			<input name="fam" type="radio"/>В отношениях <br/>
+			<input name="fam" type="radio"/>Семья <br/>
+			<input name="fam" type="radio"/>Разведен </td>
+		</tr>
+		
+		<tr>
+			<td><p>Страна: </p></td>
+			<td><input list="country" type="text"/></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2">
+				<fieldset id="me">
+				<legend>Род деятельности:</legend>
+					<table id="dials">
+						<tr>
+							<td><input type="checkbox"> политик<br></td>
+							<td><input type="checkbox"> бизнесмен<br></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"> студент<br></td>
+							<td><input type="checkbox"> врач<br></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"> IT специалист<br></td>
+							<td><input type="checkbox"> преподаватель<br></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"> безработный<br></td>
+							<td><input type="checkbox"> другое<br> </td>
+						</tr>
+					</table>
+				</fieldset>
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2">
+				<p>Причина: </p>
+				<details>
+					<summary>Подсказка</summary>
+					<p>Опишите почему вы хотите принять участие в данном мероприятии.</p>
+				</details>
+				<textarea rows="7" cols="45" name="text"></textarea>
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2">
+				<p>Комментарий: </p>
+				<textarea rows="4" cols="45" name="text"></textarea>
+			</td>
+		</tr>
+		
+		<tr>
+			<td id="processtext">
+				<p>Процесс заполнения:</p>
+				<p><progress value="20" max="100"></progress></p>
+			</td>
+			<td>
+				<p><input id="button" type="submit"></p>
+			</td>
+		</tr>
+   
+    </table>
+	 
+	</fieldset>
+ </form> 
+	 
+	 
+	 <datalist id="country"/>
+		<option value="AU"> Австралия</option>
+		<option value="AT">	Австрия</option>
+		<option value="AZ">	Азербайджан</option>
+		<option value="PT">	Азорские острова</option>
+		<option value="AX">	Аландские острова</option>
+		<option value="AL">	Албания</option>
+		<option value="DZ">	Алжир</option>
+		<option value="AS">	Американское Самоа</option>
+		<option value="AI">	Ангилья</option>
+		<option value="AO">	Ангола</option>
+		<option value="AD">	Андорра</option>
+		<option value="AQ">	Антарктика</option>
+		<option value="AG">	Антигуа и Барбуда</option>
+		<option value="AN">	Антильские Острова</option>
+		<option value="MO">	Аомынь</option>
+		<option value="AR">	Аргентина</option>
+		<option value="AM">	Армения</option>
+		<option value="AW">	Аруба</option>
+		<option value="AF">	Афганистан</option>
+	</datalist/>
+	 
+	   
+
+</body>
+</html>

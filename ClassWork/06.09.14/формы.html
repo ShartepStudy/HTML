@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Документ без названия</title>
+<style>
+	#wrap {
+		width:350px;
+		margin:150px auto;
+		border:3px solid #ccc;
+padding:20px;
+	}
+
+</style>
+</head>
+
+<body>
+<div id="wrap">
+	<form action="a.php" name="form1" method="post">
+		<label for="login">Введите ФИО</label><br />
+        <input name="login" /><br />
+        
+        <label for="password">Введите пароль</label><br />
+        <input name="password" type="password" />
+        
+        <p>Какой диск Вы хотите?</p>
+        <input type="radio" name="disk"/>CD <br />
+        <input type="radio" name="disk" />DVD
+        
+        <p>Какие курсы Вы хотели бы видето на диске?</p>
+        <input type="checkbox" name="kurs" /> Фотошоп<br />
+        <input type="checkbox" name="kurs" /> Дримвьюер<br />
+        <input type="checkbox" name="kurs" /> ПХП
+        
+        <p><label>Выберите способ доставки</label><br />
+        <select name="a">
+        	<option>Срочная</option>
+            <option>Медленная</option>
+            <option>Десять лет</option>
+        </select></p>
+        
+        <p><label>Введите адрес доставки</label><br />
+        <textarea name="adress" cols="25" rows="3"> </textarea></p>
+        
+        <input type="submit" value="Подходит" />&nbsp;<input type="reset" value="Все неправильно"  />
+
+	</form>
+</div>
+</body>
+</html>

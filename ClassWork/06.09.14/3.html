@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+   <script>
+
+      function Predicate(a, b) {
+         if (a > b)
+            return -1;
+         if (a < b)
+            return 1;
+         else
+            return 0;
+      }
+
+   </script>
+</head>
+<body>
+   <h2>
+      Script started here:
+   </h2>
+
+   <script>
+      var arr = [4, 3, 6, 8];
+      arr.sort(Predicate);
+      document.write(arr.join(" --- "));
+
+   </script>
+
+   <h2>
+      Script ended here:
+   </h2>
+
+   <input size="40" type="password"/>
+   <input type="checkbox" checked/>
+   <br />
+   <input type="radio" name="mops"/> 1 <br/>
+   <input type="radio" name="mops" /> 2 <br/>
+   <input type="radio" name="mops" /> 3 <br />
+
+   <select>
+      <option>Одесса</option>
+      <option>Киев</option>
+      <option>Полтава</option>
+      <option>Кацапетовка</option>
+      <option selected>Нью-Йорк</option>
+      <option>Банкок</option>
+   </select>
+   <br />
+   <input type="button" value="push me" style="width:300px; height:150px; font-size:20pt;"/>
+   <br />
+   <textarea cols="60" rows="20">
+some ...
+   </textarea>
+</body>
+</html>

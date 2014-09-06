@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+   <p id="p1">
+      Текст ...
+   </p>
+   <p id="mops">
+      МОПСИК !!!
+   </p>
+   <p id="mops2">
+      МОПСИК !!!
+   </p>
+   <button onclick="stop()">Остановись</button>
+   <button onclick="start()">Старт</button>
+   <script>
+      document.getElementById("p1").textContent = "Mopsik";
+      p1.textContent = "upss..";
+      p1.innerHTML = "<b> Vasya </b>";
+      p1.style.textDecoration = "underline";
+      p1.style.color = "red";
+      p1.style.backgroundColor = "yellow";
+
+      var state = 0; // yellow
+      function changeColor() {
+         if (!state) {
+            mops.style.backgroundColor = "yellow"
+            state = 1;
+         } else {
+            mops.style.backgroundColor = "red"
+            state = 0;
+         }
+      }
+      function changeColor2() {
+         mops2.style.backgroundColor++;
+      }
+      var t;
+//      setInterval(changeColor2, 10);
+      function stop() {
+         clearInterval(t);
+      }
+      function start() {
+         t = setInterval(changeColor, 500);
+      }
+
+      for(a = 0; a<1000; a++)
+         document.write(a+",");
+      document.write("\n");
+
+      var names = ["Vasya", "Zina", "Zyhra"];
+      document.write(names[0]);
+      document.write("<br/>");
+      var town = new Array("Odessa", "Kyiv", "Rovno");
+      document.write(town[0]);
+      document.write("<br/>");
+      var ar = new Array(15, 48.5, "Dima", new Array(1, 2, 3));
+
+      document.write(ar);
+      document.write("<br/>");
+
+      var br = [5, 15, 46, 28, 36];
+      document.write(br);
+      document.write("<br/>");
+
+      br.push(50);
+      document.write(br);
+      document.write("<br/>");
+
+      br.shift();
+      document.write(br);
+      document.write("<br/>");
+
+      br.unshift(100);
+      document.write(br);
+      document.write("<br/>");
+
+      br.reverse();
+      document.write(br);
+      document.write("<br/>");
+
+      br.sort()
+      document.write(br);
+      document.write("<br/>");
+
+   </script>
+</body>
+</html>

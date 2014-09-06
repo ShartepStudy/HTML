@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+   <script>
+      fib_glob = 0;
+      // hello();
+      function hello() {
+         alert("Hello");
+      }
+      function print(x,y) {
+         alert(x+ " || " + y);
+      }
+      function sum(a, b) {
+         return a + b;
+      }
+      // print(15);
+      var res = sum(10, 15);
+      // print(res);
+      function createData(x) {
+         switch (Math.round(Math.random() * x)) {
+            case 0: return "null";
+            case 1: return 1.5;
+            case 2: return "zina!";
+            case 3: return new Date();
+            case 4: return Math.random();
+         }
+      }
+      function fact(n) {
+         if (n == 0 || n == 1) return 1;
+         return fact(n - 1) * n;
+      }
+      function fib(n) {
+         fib_glob++;
+         if (n == 0 || n == 1) return 1;
+         return fib(n-1) + fib(n-2);
+      }
+      print(fib(10),fib_glob);
+   </script>
+</body>
+</html>
