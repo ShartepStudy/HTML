@@ -1,0 +1,151 @@
+.square
+{
+	position: absolute; 
+	width: 137px;
+	height: 137px;
+	font-size: 0pt;	
+	cursor: pointer;
+	border: none;
+	background: url(empty);
+	display: none;
+}
+
+.menuElem
+{
+	position: absolute; 
+	width: 137px;
+	height: 137px;
+	cursor: pointer;
+	border: none;
+	display: none;
+}
+
+body
+{
+	background-color:black;
+}
+
+#content
+{
+	position: absolute; 
+	top: 20px;
+	width: 800px; 
+	height: 800px; 
+	border: 2px solid black;
+	background-image: url(img/ѕ€тнашкићеню.png);
+}
+
+#gameField
+{
+	position: absolute; 
+	top: 250px;
+	left: 125px;
+	width: 550px; 
+	height: 550px; 
+	~border: 2px solid black;
+}
+
+#backB
+{
+	position: absolute; 
+	top: 170px; 
+	left: 300px; 
+	width: 50px; 
+	height: 50px;
+	cursor: pointer;
+	border: none;
+	background: url(img/back.png) no-repeat;
+	display: none;
+}
+
+#restB
+{
+	position: absolute; 
+	top: 170px; 
+	left: 375px; 
+	width: 50px; 
+	height: 50px;
+	cursor: pointer;
+	border: none;
+	background: url(img/reload.png) no-repeat;
+	display: none;
+}
+
+#sampleB
+{
+	position: absolute; 
+	top: 170px; 
+	left: 450px; 
+	width: 50px; 
+	height: 50px;
+	cursor: pointer;
+	border: none;
+	background: url(img/check.png) no-repeat;
+	display: none;
+}
+
+#sampleDiv
+{
+	position: absolute; 
+	top: 250px;
+	left: 125px;
+	width: 550px; 
+	height: 550px; 
+	display: none;
+	z-index: 1;
+	background-repeat: no-repeat;
+	~border: 2px solid black;
+}
+
+#timeP
+{
+	position: absolute; 
+	top: 160px; 
+	left: 60px; 
+	font-family: Comic Sans Ms;
+	font-size: 24pt;
+	display: none;
+}
+
+#stepsP
+{
+	position: absolute; 
+	top: 160px; 
+	left: 730px; 
+	font-family: Comic Sans Ms;
+	font-size: 24pt;
+	display: none;
+}
+
+#timeDiv
+{
+	position: absolute; 
+	top: 145px;
+	left: 0px;
+	width: 140px; 
+	height: 100px; 
+	display: none;
+	background: url(img/time.png) no-repeat;
+}
+
+#stepsDiv
+{
+	position: absolute; 
+	top: 145px;
+	left: 670px;
+	width: 140px; 
+	height: 100px; 
+	display: none;
+	background: url(img/steps.png) no-repeat;
+}
+
+.tooltip 
+{
+	position: absolute;
+	padding: 5;
+	border: 3px double #006688;
+	background-color: #D6A46D;
+	font-family: Comic Sans Ms;
+	font-size: 15pt;
+	display: none;
+}

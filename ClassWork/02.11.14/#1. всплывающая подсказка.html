@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <style type="text/css">
+            .tooltip {
+                padding: 5;
+                border: 3px double #006688;
+                background-color: #ddeeff;
+                position: absolute;
+                display: none;
+                font: 8pt tahoma;
+            }			
+        </style>
+        <script type="text/javascript">
+            var tip = null, mouseX, mouseY, timer;
+            
+            function captureCursor () {
+                mouseX = event.clientX; 
+                mouseY = event.clientY;
+            }
+            
+            function showTip(tipObject) {
+                tip = tipObject;
+                timer = setTimeout("displayTip()", 1000);				
+            }
+            
+            function displayTip () {
+                tip.style.left = mouseX+15;
+                tip.style.top  = mouseY+15;
+                tip.style.display = "block";
+            }
+            
+            function hideTip () {
+                if (tip.style.display == "block") 
+                    tip.style.display = "none";
+                else 
+                    clearTimeout (timer);
+            }
+        </script>
+    </head>
+    <body>
+        <span class="tooltip" id="tip1">
+            »вент состоитс€ в <b> иеве</b> 14 но€бр€!<br />
+            —корее покупай билеты!
+        </span>
+        <p
+             onmouseover="showTip(tip1)" 
+             onmouseout="hideTip()" 
+             onmousemove="captureCursor()"
+			 style="font-family: Calibri; font-size: 20px; cursor: hand;">Kiss FM - 12 лет!</p>
+    </body>
+</html>
+

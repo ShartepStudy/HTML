@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Выбор цветов.</title>
+<script type="text/javascript" src="1.js"></script>
+</head>
+<body name>
+<!--форма выбора цветов, поля только для чтения руками в них ничего не вписывается-->
+<form  name='F' action="get_data.html" method="GET">
+<input type='text' name='text1' readonly/> <input type='radio' name='R' checked/> Цвет фона.<br/>
+<input type='text' name='text2' readonly/> <input type='radio' name='R'/> Цвет текста.<br/>
+<input type='text' name='text3' readonly/> <input type='radio' name='R'/> Цвет рамки.<br/>
+<input type='submit' value='Построить'/>
+</form>
+<!--сюда автоматически добавится таблица стандартных цветов-->
+<div id="D"></div>
+<!--формирование таблицы цветов с помощью скрипта-->
+<script>setTableColor();</script>
+</body>
+</html>

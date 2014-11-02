@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>New Year</title>
+</head>
+
+<body>
+   <p id="clock" style="font: 150px Verdana;"> </p>
+	
+   <script>
+      updateClock ();
+      var t = setInterval ("updateClock()", 499); // 
+        
+      function format (n){
+         return n<10 ? "0"+n : n;
+      }
+        
+
+      function updateClock () {
+         var now = new Date();
+         var d = new Date("Jan,01,2015,00:00:00");
+         var time = d.getTime()-now.getTime();
+         //alert(time);
+         time = parseInt(time);
+         time = Math.floor(time/1000); 
+         //alert(time);    
+         var m = Math.floor(time/60); 
+         var hours = Math.floor(m/60);  
+         var days = Math.floor(hours/24);
+         hours = hours-days*24;
+         m = m - (days*1440+hours*60);
+         time = time - (m*60+days*86400+hours*3600);
+		
+         var dateStr = format(days)+":"+format(hours)+":"+format(m)+":"+format(time);		
+         //var dateStr = days+":"+hours;		
+         //alert(dateStr);
+         clock.innerHTML = dateStr;
+      }
+   </script>
+</body>
+</html>

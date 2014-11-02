@@ -1,0 +1,27 @@
+<body id="page">
+    <span id="elemToMove"></span>
+	
+	<script type="text/javascript">
+        var R = 0,              // радиус окружности 
+            a = 0,               // угол (в радианах) 
+            da = 1*Math.PI/180,  // приращение угла 
+            delay = 0;          // задержка (в мсек.) 
+        
+        // функция движения элемента 
+        function moveElem() {
+            // изменение координат элемента 
+            elemToMove.style.pixelLeft = 300+R*Math.cos(a);
+            elemToMove.style.pixelTop  = 300+R*Math.sin(a);    
+            // увеличение расстояния до полюса 
+            a += da;
+           // da += 0.5;
+			R+=0.05;
+			
+			var obj = document.createElement("span");
+			obj.setAttribute("style", "position: absolute; top: " + elemToMove.style.pixelTop + "; left: " + elemToMove.style.pixelLeft + "; width: 2px; height: 2px; border: 2px solid magenta; background-color: pink;");
+			document.getElementById("page").appendChild(obj);
+        }
+        // периодический вызов функции движения 
+        setInterval ("moveElem()", delay);
+	</script>
+<body>

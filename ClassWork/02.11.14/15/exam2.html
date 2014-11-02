@@ -1,0 +1,226 @@
+<html>
+<head>
+
+</head>
+<body>
+
+<img id='im1' style="position: absolute; top:  50; left: 50; width: 616px; heigth:616px;  display: none; z-index: 1000; border: 2px groove black;" src="exam2.jpg"></img>
+
+<script>
+
+
+
+for (i=0; i<4; i++)
+{
+for (k=0; k<4; k++)
+{
+
+if (!(k==3 && i== 3))
+{
+document.write ("<div onmousedown='mdown(this)' id='dv"+k+""+i+"' style='position: absolute; top: "+(50+k*154)+"; left: "+(50+i*154)+"; width: 154; height: 154; background-image: url(\"exam2.jpg\"); background-position: "+i*(-154)+" "+k*(-154)+"; border: 2px groove black;'></div>");
+}
+
+else{
+document.write ("<div onmousedown='mdown(this)' id='dv"+k+""+i+"' style='position: absolute; top: "+(50+k*154)+"; left: "+(50+i*154)+"; width: 154; height: 154; border: 2px groove black;'></div>");
+}
+
+}
+
+}
+
+var l=document.getElementsByTagName("div");
+
+function rotate ()
+{
+var tt1;
+var tt2;
+var pp1;
+var pp2;
+var cnt=15;
+
+for (var i=0; i<cnt; i++)
+{
+tt1=parseInt (Math.random ()*17);
+tt2=parseInt (Math.random ()*17);
+pp1=l[tt1].style.top;
+pp2=l[tt1].style.left;
+l[tt1].style.top=l[tt2].style.top;
+l[tt1].style.left=l[tt2].style.left;
+l[tt2].style.top=pp1;
+l[tt2].style.left=pp2;
+}
+}
+
+rotate ();
+
+var m=0; 
+
+
+function slide (element,a, b)
+{
+element.style.top+=a;
+element.style.left+=b;
+}
+
+
+function mdown(element)
+{
+var voidx=dv33.style.left;
+var voidy=dv33.style.top;
+var b=element.id;
+var elx=element.style.left;
+var ely=element.style.top;
+m=0;
+
+var todo=0;
+
+if ( voidx==elx)
+{
+if (parseInt (voidy)-parseInt (ely)==154)
+{
+todo=0;
+
+dv33.style.top=ely;
+dv33.style.left=elx;
+
+
+(function() {
+	todo++;
+    element.style.top=(parseInt(element.style.top)+1) + 'px';
+	if (todo==154)
+	{
+	}
+	else{
+    setTimeout(arguments.callee, 3);}
+})();
+
+//
+element.style.left=voidx;
+}
+
+
+if(parseInt (voidy)-parseInt (ely)==-154)
+{
+dv33.style.top=ely;
+dv33.style.left=elx;
+
+(function() {
+	todo++;
+    element.style.top=(parseInt(element.style.top)-1) + 'px';
+	if (todo==154)
+	{
+	}
+	else{
+    setTimeout(arguments.callee, 3);}
+})();
+
+
+element.style.left=voidx;
+}
+
+}
+
+
+ 
+
+if (parseInt (voidx)-parseInt (elx)==154)
+{
+if ( voidy==ely)
+{
+dv33.style.top=ely;
+dv33.style.left=elx;
+element.style.top=voidy;
+
+
+(function() {
+	todo++;
+    element.style.left=(parseInt(element.style.left)+1) + 'px';
+	if (todo==154)
+	{
+	}
+	else{
+    setTimeout(arguments.callee, 3);}
+})();
+
+
+
+}
+}
+ 
+if (parseInt (voidx)-parseInt (elx)==-154)
+{
+if ( voidy==ely)
+{
+dv33.style.top=ely;
+dv33.style.left=elx;
+element.style.top=voidy;
+
+(function() {
+	todo++;
+    element.style.left=(parseInt(element.style.left)-1) + 'px';
+	if (todo==154)
+	{
+	}
+	else{
+    setTimeout(arguments.callee, 3);}
+})();
+
+}
+}
+
+
+
+
+
+
+for (i=0; i<16; i++)
+{
+
+
+var d=parseInt(l[i].id.replace(/\D+/g,""));
+var t1=parseInt(d/10);
+var t2=d%10
+z1=parseInt(l[i].style.top);
+z2=parseInt(l[i].style.left);
+
+
+
+if (z1==t1*154+50 && z2==t2*154+50)
+{
+
+m++;
+}
+
+
+}
+
+if (m==15)
+{alert ("WIN!111");}
+
+
+}
+
+
+function down()
+{
+
+
+document.getElementById("im1").style.display="block";
+
+}
+
+function up()
+{
+document.getElementById("im1").style.display="none";
+
+}
+
+
+</script>
+
+
+<input type="button" value="Show end picture!" style="position: absolute; top: 300; left: 800; width: 150; height: 30;" onmouseover="down()" onmouseout="up()"/>
+<input type="button" value="Rotate!" style="position: absolute; top: 350; left: 800; width: 150; height: 30;" onclick="rotate()"/>
+
+</body>
+</html>

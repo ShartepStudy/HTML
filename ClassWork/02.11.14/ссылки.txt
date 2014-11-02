@@ -1,0 +1,12 @@
+http://learn.javascript.ru/browser-environment
+http://learn.javascript.ru/dom-nodes
+http://learn.javascript.ru/traversing-dom
+http://learn.javascript.ru/basic-dom-node-properties
+
+http://javascript.ru/ui/draganddrop
+
+http://javascript.ru/tutorial/events/properties
+
+http://htmlweb.ru/java/example.php
+
+http://www.w3schools.com/Jquery/default.asp

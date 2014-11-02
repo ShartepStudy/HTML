@@ -1,0 +1,21 @@
+<body>
+    <span id="elemToMove" style="position: absolute; left: 0; top: 0; width: 50; height: 50; border: 3 green solid; background-color: greenyellow"></span>
+    <script type="text/javascript">
+        var R = 0,              // расстояние до полюса 
+            a = 30 * Math.PI / 180, // угол (в радианах) 
+            dR = 1,             // приращение расстояния 
+            delay = 50;         // задержка (в мсек.) 
+        
+        // функция движения элемента 
+        function moveElem() {
+            // изменение координат элемента 
+            elemToMove.style.left = R*Math.cos(a) + 400;
+            elemToMove.style.top  = R*Math.sin(a) + 400;    
+            // увеличение расстояния до полюса 
+            R += dR;
+        }
+        // периодический вызов функции движения 
+        setInterval ("moveElem()", delay);
+    </script>
+<body>
+

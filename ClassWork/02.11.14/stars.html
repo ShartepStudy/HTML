@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<style type="text/css">
+body {
+	overflow:	hidden;
+	background:	black;
+}
+
+#foother {
+	text-align: center;
+	font:		italic 8pt Times New Roman;
+	color:		#FFFFFF;
+	
+	position:	absolute;	
+	width:		100%;
+		
+	visibility:	hidden;
+}
+
+</style>
+
+</HEAD>
+<BODY id="body" onResize="onRes()">
+
+
+<script language="JavaScript">
+// 1 создаетс€ новый массив
+var el = new Array();
+var count=30;	//кол . звездочек
+
+//2
+for(i=0;i<count;i++) {
+	//3 объект - звездочка i c id sn0, sn1, sn2.....
+	el[i] = new starElem ("sn"+i);
+	//5 вызываетс€ ф-€ отображающа€ звездочки на экране -- не движущиес€
+	el[i].show();
+}
+
+//6 переодически вызываем ф. moveEl()
+setInterval("moveEl()",20);
+
+function rand(n) {
+	return Math.floor (Math.random()*n)
+}
+
+// 4 описание объекта дл€ звездочки со свойствами и методами
+function starElem(id) {
+	this.x		= body.clientWidth/2;
+	this.y		= body.clientHeight/2;
+	this.s		= 0;
+	this.a		= Math.random()*2*Math.PI;
+	this.size	= 1;
+	
+	this.ds		= rand(5)+3;
+	this.accel 	= Math.random()*rand(5);
+
+	this.dsize	= this.accel/2;
+
+	this.id		= id;
+	
+	this.move	= moveStar;
+	this.show	= showStar;
+	this.check	= elCheck;
+	
+	return this;
+}
+
+// 5 показываем сформированную звездочку
+function showStar()
+{
+document.write ("<span id='"+this.id+"' style='position:absolute;left:"+this.x+";top:"+this.y+
+"; font:"+this.size+"pt; color: white;'>*</span>");
+
+}
+
+//11 ƒвигаем звездочку
+function moveStar ()  {
+	// вычисл€ем смещени€
+	var yy=this.s*Math.sin(this.a)+this.y;
+	var xx=this.s*Math.cos(this.a)+this.x;
+	this.s += this.ds;
+	this.ds += this.accel;
+	this.size += this.dsize;
+	//смещаем
+	document.getElementById (this.id).style.left=xx;
+	document.getElementById (this.id).style.top=yy;
+	document.getElementById (this.id).style.fontSize=this.size+"pt";
+}
+//9 определ€ем не вышла ли звезда за пределы true - в пределах,false - вылетели за пределы
+function elCheck () {
+	if (this.s <= Math.max(body.clientWidth, body.clientHeight)/2) return true;
+	return false;
+}
+
+
+//7 функци€ определ€ет двигать ли звездочку - если в пределах экрана или создавать новую в центре если за пределами
+function moveEl() {
+	//перебираем все звездочки
+	for(i=0;i<count;i++){
+		//вызываем функцию определ€ющую положение относительно пределов
+		if( !el[i].check() ) 
+			//8 если вылетели за пределы создаем новый объект в центре
+			el[i] = new starElem(el[i].id)
+		else 
+			// 10 иначе двигаем звездочку
+			el[i].move();
+	}
+}
+
+
+
+
+function moveText () {
+	tx--;
+	foother.style.top = tx;
+	if (tx <= body.clientHeight - foother.style.height - 20)
+		clearInterval(txt_timer);		
+}
+
+function onRes() {
+	foother.style.top = body.clientHeight - foother.style.height - 20;	
+}
+
+
+// show & move text
+var tx = body.clientHeight+10;
+foother.style.top = tx;
+foother.style.visibility = 'visible';
+var txt_timer = setInterval ("moveText()", 30);
+
+
+
+
+</script>
+</BODY>
+</HTML>

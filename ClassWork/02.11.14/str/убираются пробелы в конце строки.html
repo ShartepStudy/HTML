@@ -1,0 +1,24 @@
+<html>
+	<head>
+	
+	</head>
+	<body>
+		<script type="text/javascript">
+		//чтобы увидеть пробелы - выделить
+			var text1=prompt("¬ведите    ","");
+			var text=text1;
+			var pos_posl_s ;//позици€ последнего символа
+			
+			pos_posl_s = text.length-1
+			
+			while (text.charAt(pos_posl_s) == ' '){
+				text = text.slice(0,pos_posl_s);
+				pos_posl_s-- ;	
+			}
+			alert(text1+"\n"+text)
+			
+			
+  
+		</script>
+	</body>
+</html>

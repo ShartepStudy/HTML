@@ -1,0 +1,20 @@
+
+.br_both{
+clear:both;
+}
+#block{
+position:absolute;
+left:50%;
+margin-left:-200px;
+width:400px;
+}
+#buttom{
+width:430px;
+height:30px;
+border:1px solid red;
+
+}
+#buttom img {
+margin-left:10px;
+
+}

@@ -1,0 +1,242 @@
+<html>
+<head>
+<title>Игра «Подгладь крота» </title>
+
+<style style="text/css">
+body { cursor: url(images/hand.png), pointer;
+       background-image: url(images/bg.png);
+}
+#main    { padding-left: 190px; }
+#logo    { position: absolute; top: 190px; left: 400px; }
+#again    { position: absolute; top: 200px; left: 500px; display: none; }
+#start   { position: absolute; top: 380px; left: 590px; }
+#options { position: absolute; top: 420px; left: 550px; }
+#digits  { position: absolute; top: 200px; left: 650px; }
+#message { position: absolute; top: 200px; left: 550px; }
+#timer   { position: absolute; top: 130px; left: 700px; height: 500px; width: 500px; }
+#points  { position: absolute; top: 70px; left: 215px; }
+#loose   { position: absolute; top: 105px; left: 215px; }
+#tree    { position: absolute; top: 250px; left: 250px; }
+
+#hole1 { position: absolute; top: 320px; left: 590px; }
+#hole2 { position: absolute; top: 350px; left: 920px; }
+#hole3 { position: absolute; top: 500px; left: 950px; }
+#hole4 { position: absolute; top: 470px; left: 490px; }
+#hole5 { position: absolute; top: 420px; left: 720px; }
+#enemy { position: absolute; display: none; padding-top: 90px; }
+</style>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.noselect.js"></script>
+<script type="text/javascript" src="jquery.timers.js"></script>
+<script>
+
+$(document).ready(function() {
+
+$('#main').bind('contextmenu', function() { return false; }); // убрать контекстное меню
+
+function menuShow() {
+
+	$('#start').mouseover(function() { $('#start').css('top', '+=5'); });
+	$('#start').mouseout(function() { $('#start').css('top', '-=5'); });
+	$('#options').mouseover(function() { $('#options').css('top', '+=5'); });
+	$('#options').mouseout(function() { $('#options').css('top', '-=5'); });
+	
+	$('#start').click(function() { gameInit(); });
+
+}
+
+function menuHide() {
+    $('#logo').remove();
+    $('#start').remove();
+	$('#options').remove();
+}
+
+function gameInit() {
+
+    menuHide();
+	
+	$('#main').css('cursor', 'url(images/weapons/weapon1.png), pointer');
+	
+	$('#main').mousedown(function() { $('#main').css('cursor', 'url(images/weapons/weapon2.png), pointer'); });
+	$('#main').mouseup(function() { $('#main').css('cursor', 'url(images/weapons/weapon1.png), pointer'); });
+    $('#enemy').click(function() { hitEnemy(); });
+	
+    for (var i = 0; i < 6; i++) {$('#hole' + i).html('<img src="images/hole.png">');}
+
+    startTimerInit();
+
+
+}
+
+function hitEnemy() {
+ 
+    if ($('#enemy').html() != '') {
+		$('#enemy').html('<img src="images/enemydown.png">');
+		$('#enemy').animate({top: '+=5'}, 30)
+		.animate({top: '-=5'}, 30);
+
+
+		setPoint();
+		hideEnemy();
+	}	
+
+}
+
+function hideEnemy() {
+
+    $("#enemy").oneTime(200, function() {
+		$('#enemy').html('');
+    });
+
+}
+
+function setPoint() {
+    var g = $('#points').data('points');
+    $('#points').data('points', ++g);
+
+	var tt = '';
+	g = g + "";
+	
+    if (g >= 10 && g < 20) {
+	     tt = '<img src="images/digits/1.png"><img src="images/digits/' + g.charAt(1) + '.png">';
+	} else if (g >= 20 && g < 30) {
+	     tt = '<img src="images/digits/2.png"><img src="images/digits/' + g.charAt(1) + '.png">';
+	} else if (g >= 30 && g < 40) {
+	     tt = '<img src="images/digits/3.png"><img src="images/digits/' + g.charAt(1) + '.png">';
+	} else if (g >= 40 && g < 50) {
+	     tt = '<img src="images/digits/4.png"><img src="images/digits/' + g.charAt(1) + '.png">';
+	} else {
+	     tt = '<img src="images/digits/' + g + '.png">';
+	}
+
+	$('#points').html('<img src="images/points.png">&nbsp;&nbsp;' + tt);	
+}
+
+function startTimerInit() {
+$('#points').data('points', 0);
+	$('#digits').everyTime(1000, 'timer', function(i) {
+		$('#digits').animate({opacity: '0.10'}, 0);
+		$('#digits').html('<img src="images/digit' + i + '.png">');
+		$('#digits').animate({opacity: '1'}, 1000);
+
+		if (i == 4) {
+		    $('#digits').stopTime('timer');
+			
+			$('#digits').remove();
+			
+			$('#message').animate({opacity: '0.10'}, 0);
+			$('#message').html('<img src="images/go.png">');
+			$('#message').animate({opacity: '1'}, 1000).delay(200);
+			$('#message').animate({top: '-=500'}, 500);
+		
+            gameTimerInit();
+				
+	        $('#points').html('<img src="images/points.png">&nbsp;&nbsp;<img src="images/digits/0.png">');	
+	        $('#loose').html('<img src="images/lost.png">&nbsp;&nbsp;<img src="images/digits/0.png">');	
+	        $('#timer').html('<img src="images/digits/0.png"><img src="images/digits/s.png"><img src="images/digits/5.png"><img src="images/digits/9.png">');	
+	
+			
+			// создание врагов
+			$('#timer').everyTime(1200, 'enemies', function() {
+            
+				showEnemy();
+
+			});
+		
+		
+		}
+  
+	}, 4);
+
+}
+
+function gameTimerInit() {
+			// таймер
+			$('#timer').everyTime(1000, 'timer2', function(i) {
+				var n = (60 - i) + "";
+				$('#timer').html('<img src="images/digits/0.png"><img src="images/digits/s.png">');
+			
+				if (n < 10) {
+					$('#timer').append('<img src="images/digits/0.png">');
+					$('#timer').append('<img src="images/digits/' + n.charAt(0) + '.png">');
+				} else {
+					$('#timer').append('<img src="images/digits/' + n.charAt(0) + '.png">');
+					$('#timer').append('<img src="images/digits/' + n.charAt(1) + '.png">');
+				}
+			
+				if (i == 60) {
+				
+				$('#again').click(function() { location.href="index.html";});
+				
+					$('#timer').stopTime('enemies');
+					$('#again').css('display', 'block');
+				}
+
+			}, 60);
+}
+
+function showEnemy() {
+
+	$('#enemy').css('display', 'none');
+	
+	t = (Math.random() * 4 + 1) + "";
+
+
+	var hole = t.charAt(0);
+	var top = $('#hole' + hole).css('top');
+	var left = $('#hole' + hole).css('left');
+
+
+	$('#enemy').html('<img src="images/enemy2.png">');
+	$('#enemy').css('left', left);
+	$('#enemy').css('top', top);
+	
+	$('#enemy').css('width', '0');
+	$('#enemy').css('height', '0');
+	
+	$('#enemy').css('display', 'block');
+	$('#enemy').animate({width: '+=100px', height: '+=70px', top: '-=120px' }, 100);
+
+}
+
+menuShow();
+
+
+
+});
+</script>
+
+</head>
+<body>
+<div style="display: none;"><img src="images/digit1.png"><img src="images/digit2.png"><img src="images/digit3.png"><img src="images/go.png"></div>
+
+<div id="main">
+
+	<div style="background-image: url(images/game.jpg); border: 1px solid #666; height: 600px; width: 960px;"></div>
+
+	<div id="logo"><img src="images/logo.png"></div>
+	<div id="again"><img src="images/again.png"></div>
+	<div id="points"></div>
+
+	
+	<div id="timer"></div>
+	<div id="digits"></div>
+	<div id="message"></div>
+
+	<img id="tree" src="images/tree.png">
+
+	<div id="start"><img src="images/start.png"></div>
+
+
+	<div id="hole1"></div>
+	<div id="hole2"></div>
+	<div id="hole3"></div>
+	<div id="hole4"></div>
+	<div id="hole5"></div>
+	
+	<div id="enemy"><img src="images/enemy2.png"></div>
+
+</div>
+</body>
+</html>

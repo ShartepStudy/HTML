@@ -1,0 +1,119 @@
+﻿<!--
+Создать раскрывающийся список. При щелчке на пункте списка
+скрывается или раскрывается его содержимое.
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Экзаменационное задание №2</title>
+	        <style type="text/css">
+           div.root {
+		   display: block;
+		   padding: 5;
+		   font-size: larger;
+		   }
+		   div.hiddensection {
+                display: none;
+                padding: 5;
+				font-size: medium;
+				color: blue;
+				font-weight: bold;
+				/*
+				text-decoration: underline;
+				*/
+            }
+		div.hiddentext {
+				display: none;
+                padding: 5;
+				font-size: medium;
+				color: black;
+				font-weight: normal;
+				/*
+				text-decoration: none;
+				*/
+		}
+        </style>
+
+</head>
+<body id = "body">
+		
+	
+ <script type="text/javascript">
+ function collapseElement(event) {
+if (event.target.tagName == 'IMG' || event.target.tagName == 'SPAN') 
+	{
+		el = event.target.parentNode;
+	}
+else return;
+image = el.getElementsByTagName('img');
+daughterElems = el.getElementsByTagName('div');
+if (image.length)
+{
+
+if (image[0].src.lastIndexOf("open.jpg") != -1) 
+	{
+	image[0].src = "closed.jpg";
+	for (i = 1; i < image.length; i++)
+		{
+		if (image[i].src.lastIndexOf("open.jpg") != -1) 
+			{
+			image[i].src = "closed.jpg";
+			}
+		}
+	}
+else if (image[0].src.lastIndexOf('closed.jpg') != -1) 
+	{
+	image[0].src = "open.jpg";
+	}
+}
+
+for (i = 0; i < daughterElems.length; i++){
+ if (daughterElems[i].style.display == "none" || daughterElems[i].style.display == "") {
+ if (daughterElems[i].parentNode == el)
+	{
+	daughterElems[i].style.display = "block";
+	daughterElems[i].style.paddingLeft += 40;
+	}
+ }
+ else
+ {
+ daughterElems[i].style.display = "none";
+ daughterElems[i].style.paddingLeft -= 40;
+ }
+
+ }
+}
+
+function addItem(elem, text, classname)
+{
+var newdiv = document.createElement('div');
+newdiv.innerHTML = text;
+newdiv.className = classname;
+elem.appendChild(newdiv);
+return newdiv;
+}
+
+for (i = 0; i < 3; i++)
+{
+var newtitle = addItem(body, "<img src = 'closed.jpg' width = '30pt' onclick = 'collapseElement'><span onclick = 'collapseElement'> Title" + i + "</span>", "root");
+for (j = 0; j < 4; j++)
+{
+var newsection = addItem(newtitle, "<img src = 'closed.jpg' width = '30pt' onclick = 'collapseElement'><span onclick = 'collapseElement'> Section " + j + "</span>", "hiddensection");
+for (k = 0; k < 3; k++)
+{addItem(newsection, "<img src = 'check.gif'>Text" + j + "-" + k, "hiddentext");}
+}
+}
+addEventListener( "click", collapseElement, false)
+
+ </script>
+
+<noscript>
+    <h3>Убедитесь, что ваш браузер поддерживает JavaScript 
+    и в свойствах браузера разрешено выполнение сценариев!</h3>
+</noscript>
+
+
+</body>
+</html>

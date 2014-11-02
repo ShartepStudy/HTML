@@ -1,0 +1,358 @@
+<html>
+<head>
+
+    <style type="text/css">
+        .sp {
+            position: absolute;
+            cursor: pointer;
+            background-color:  greenyellow;
+            border: 3px solid greenyellow;
+            border-radius: 10px;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            
+        }
+
+        #border {
+            border: 1px solid black;
+            width:100%;
+            position: absolute;
+            top:60px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        var MaxZIndex = 10;
+        function Position(sp_top, sp_left, sp_offX, sp_offY) {
+            this.top = sp_top;
+            this.left = sp_left;
+            this.offX = sp_offX;
+            this.offY = sp_offY;
+            return this;
+        }
+        var arrElementsPosition = []
+
+
+        function Combinations(elem_first, elem_second, elem_resalt) {
+            this.first = elem_first;
+            this.second = elem_second;
+            this.resalt = elem_resalt;
+            return this;
+        }
+        var arrCombinations = []
+        arrCombinations[1] = new Combinations("элевода",  "воздух",  "пар");
+        arrCombinations[2] = new Combinations("воздух" , "огонь", "энергия");
+        arrCombinations[3] = new Combinations("огонь" , "спирт", "энергия"); 
+        arrCombinations[4] = new Combinations("вода", "голем", "пар");    
+        arrCombinations[5] = new Combinations("воздух" , "земля", "пыль");
+        arrCombinations[6] = new Combinations("земля" , "огонь", "лава");
+        arrCombinations[7] = new Combinations("вода" , "земля", "болото");
+        arrCombinations[8] = new Combinations("вода" , "огонь", "спирт");      
+        arrCombinations[9] = new Combinations("воздух", "лава", "камень");
+        arrCombinations[10] = new Combinations("камень" , "камень",  "огонь");
+        arrCombinations[11] = new Combinations("воздух" , "вода" , "пар");
+        arrCombinations[12] = new Combinations("воздух" , "камень", "песок");
+        arrCombinations[13] = new Combinations("огонь" , "камень",  "металл");
+        arrCombinations[14] = new Combinations("огонь" , "дерево" ,"пепел");      
+        arrCombinations[15] = new Combinations("огонь" ,"пыль", "порох");
+        arrCombinations[16] = new Combinations("сера" , "селитра", "порох");
+        arrCombinations[17] = new Combinations("болото" , "песок" , "глина");
+        arrCombinations[18] = new Combinations("огонь" , "глина" , "кирпич");
+        arrCombinations[19] = new Combinations("воздух" , "энергия" , "буря");
+        arrCombinations[20] = new Combinations("огонь" , "песок" , "стекло");
+        arrCombinations[21] = new Combinations("энергия" , "металл" , "электричество");
+        arrCombinations[22] = new Combinations("камень" , "ракушки" , "известняк");
+        arrCombinations[23] = new Combinations("энергия" , "болото", "жизнь");
+        arrCombinations[24] = new Combinations("болото" , "жизнь" , "бактерии");
+        arrCombinations[25] = new Combinations("вода" , "жизнь", "водоросли");
+        arrCombinations[26] = new Combinations("вода" , "бактерии" ,"планктон");
+        arrCombinations[27] = new Combinations("бактерии" , "планктон" , "рыба");
+        arrCombinations[28] = new Combinations("вода" , "змея" , "рыба");
+        arrCombinations[29] = new Combinations("болото" , "бактерии",  "сера");
+        arrCombinations[30] = new Combinations("земля" , "планктон" , "червь");    
+        arrCombinations[31] = new Combinations("камень" , "планктон", "ракушки");
+        arrCombinations[32] = new Combinations("планктон", "рыба" , "кит");
+        arrCombinations[33] = new Combinations("вода" , "зверь" , "кит");
+        arrCombinations[34] = new Combinations("воздух" , "червь" , "бабочка");
+        arrCombinations[35] = new Combinations("земля" , "червь",  "жук");
+        arrCombinations[36] = new Combinations("песок" , "жук",  "скорпион");
+        arrCombinations[37] = new Combinations("болото" , "червь",  "змея");
+        arrCombinations[38] = new Combinations("песок" , "червь",  "змея");
+        arrCombinations[39] = new Combinations("камень" , "жизнь" , "яйцо");
+        arrCombinations[40] = new Combinations("змея" , "змея" , "яйцо");
+        arrCombinations[41] = new Combinations("птица" , "птица" , "яйцо");
+        arrCombinations[42] = new Combinations("воздух" , "яйцо",  "птица");
+        arrCombinations[43] = new Combinations("воздух", "ящерица", "птица");
+        arrCombinations[44] = new Combinations("болото" , "яйцо", "ящерица");
+        arrCombinations[45] = new Combinations("ящерица" , "ящерица" , "яйцо");
+        arrCombinations[46] = new Combinations("червь" , "змея" , "ящерица");
+        arrCombinations[47] = new Combinations("земля" , "яйцо" , "динозавр");
+        arrCombinations[48] = new Combinations("динозавр" , "динозавр" , "яйцо");
+        arrCombinations[49] = new Combinations("песок" , "яйцо",  "черепаха");
+        arrCombinations[50] = new Combinations("черепаха", "черепаха", "яйцо");             
+        arrCombinations[51] = new Combinations("земля" , "ящерица" , "зверь");
+        arrCombinations[52] = new Combinations("жизнь" , "зверь",  "человек");
+        arrCombinations[53] = new Combinations("жизнь" , "голем" , "человек");
+        arrCombinations[54] = new Combinations("металл" , "человек" , "человек");
+        arrCombinations[55] = new Combinations("скорпион" , "инструмент" , "яд");         
+        arrCombinations[56] = new Combinations("человек" , "яд" , "труп");
+        arrCombinations[57] = new Combinations("болото" , "водоросли" , "мох");
+        arrCombinations[58] = new Combinations("земля" , "водоросли" , "гриб");
+        arrCombinations[59] = new Combinations("болото" , "мох", "папоротник");
+        arrCombinations[60] = new Combinations("земля" , "мох" , "трава");
+        arrCombinations[61] = new Combinations("песок" , "жизнь" ,  "семена");
+        arrCombinations[62] = new Combinations("трава" , "трава" , "семена");
+        arrCombinations[63] = new Combinations("дерево" , "дерево" , "семена");
+        arrCombinations[64] = new Combinations("земля" , "семена" , "дерево");
+        arrCombinations[65] = new Combinations("земля" , "инструмент" , "пашня");
+        arrCombinations[66] = new Combinations("семена", "пашня", "пшеница");     
+        arrCombinations[67] = new Combinations("болото" , "трава" , "тростник");
+        arrCombinations[68] = new Combinations("огонь" , "трава" , "табак");
+        arrCombinations[69] = new Combinations("пепел" , "жизнь",  "феникс");
+        arrCombinations[70] = new Combinations("огонь" , "птица",  "феникс");
+        arrCombinations[71] = new Combinations("жизнь" , "труп" , "зомби");
+        arrCombinations[72] = new Combinations("труп" , "зомби" , "вурдалак");
+        arrCombinations[73] = new Combinations("человек" , "кровь" , "вампир");
+        arrCombinations[74] = new Combinations("человек" , "вампир" , "вампир");
+        arrCombinations[75] = new Combinations("зверь", "вампир", "оборотень");       
+        arrCombinations[76] = new Combinations("огонь" , "динозавр" , "дракон" );      
+        arrCombinations[77] = new Combinations("буря" , "птица" , "гром-птица");
+        arrCombinations[78] = new Combinations("огонь" , "жизнь" , "элементал");
+        arrCombinations[79] = new Combinations("глина" , "жизнь" , "голем");
+        arrCombinations[80] = new Combinations("лава" , "жизнь" , "лавовый голем");
+        arrCombinations[81] = new Combinations("металл" , "жизнь" , "металлический голем"  );     
+        arrCombinations[82] = new Combinations("человек" , "ткань" , "одежда");
+        arrCombinations[83] = new Combinations("инструмент" , "тростник" , "бумага");
+        arrCombinations[84] = new Combinations("бумага" , "перо" , "книга");
+        arrCombinations[85] = new Combinations("кот", "собака", "Котопес");
+        arrCombinations[86] = new Combinations("камень" , "человек" , "хижина");
+        arrCombinations[87] = new Combinations("глина" , "известняк" , "цемент");
+        arrCombinations[88] = new Combinations("вода", "цемент"  ,"бетон");
+        arrCombinations[89] = new Combinations("стекло" , "кирпичный дом" , "небоскреб");
+        arrCombinations[90] = new Combinations("инструмент" , "древесина" , "колесо");
+        arrCombinations[91] = new Combinations("пар" , "металл" , "паровой котел");
+        arrCombinations[92] = new Combinations("уголь" , "паровой котел" , "паровой двигатель");
+        arrCombinations[93] = new Combinations("вода" , "древесина" , "лодка");
+        arrCombinations[94] = new Combinations("древесина", "лодка", "деревянный корабль");
+        arrCombinations[95] = new Combinations("лодка" , "ткань" , "парусная лодка");
+        arrCombinations[96] = new Combinations("паровой двигатель", "деревянный корабль" , "пароход");
+        arrCombinations[97] = new Combinations("древесина" , "колесо" , "телега");
+        arrCombinations[98] = new Combinations("зверь" , "телега" , "упряжка");
+        arrCombinations[99] = new Combinations("паровой двигатель" , "телега" , "паровоз");       
+        arrCombinations[100] = new Combinations("человек", "оружие" , "охотник");
+        arrCombinations[101] = new Combinations("яд" ," оружие" , "отравленное оружие");
+        arrCombinations[102] = new Combinations("нефть" , "страна" , "Саудовская Аравия");
+        arrCombinations[103] = new Combinations("охотник" , "оружие", "воин");
+        arrCombinations[104] = new Combinations("известняк" , "навоз" , "селитра");
+
+        
+       
+        function StaticElement(sp_top, sp_left, sp_width, sp_height, sp_text) {
+            this.top = sp_top;
+            this.left = sp_left;
+            this.text = sp_text;
+            this.width = sp_width;
+            this.height = sp_height;
+        }
+        var arrStaticElements = []
+
+        var currenIndexColor = 0;
+        var MaxIndexColor = 10;
+        function GetColorStyle() {
+            currenIndexColor++;
+            if (currenIndexColor >= MaxIndexColor) currenIndexColor = 0;
+
+            if (currenIndexColor == 0) return 'background-color:  greenyellow; border: 3px solid greenyellow;';
+            if (currenIndexColor == 2) return 'background-color:  blue; border: 3px solid blue;';
+            if (currenIndexColor == 3) return 'background-color:  coral; border: 3px solid coral;';
+            if (currenIndexColor == 4) return 'background-color:  green; border: 3px solid green;';
+            if (currenIndexColor == 5) return 'background-color:  yellow; border: 3px solid yellow;';
+            if (currenIndexColor == 6) return 'background-color:  red; border: 3px solid red;';
+            if (currenIndexColor == 7) return 'background-color:  orange; border: 3px solid orange;';
+            if (currenIndexColor == 8) return 'background-color:  violet; border: 3px solid violet;';
+            if (currenIndexColor == 9) return 'background-color:  silver; border: 3px solid silver;';
+            if (currenIndexColor == 10)return 'background-color:  greenyellow; border: 3px solid greenyellow;';
+        }
+
+
+
+        var peretask = false; // перетаскиваем мы сейчас объект или нет
+        var clientWidth = document.body.clientWidth;
+
+        function CreateElement(id, top, left, width, height, text) {
+            var parentElem = document.body;
+            var newSpan1 = document.createElement('span');
+            newSpan1.innerHTML = '<span class="sp" id="' + id + '" onmousedown="mdown(this,event)" onmouseup="mup(event)" style="top: ' + top + '; left: ' + left + ';width: ' + text.length * 9 + ';height: ' + height + ';  ' + GetColorStyle() + ' ">' + text + '</span>';
+            parentElem.appendChild(newSpan1);
+            arrElementsPosition[id] = new Position(top, left);
+            return newSpan1;
+        }
+
+        function CreateElementStatic(id, top, left, width, height, text) {        
+            var parentElem = document.body;
+            
+            var nTop =  (arrStaticElements.length == 1 || arrStaticElements.length == 0) ? top : arrStaticElements[arrStaticElements.length - 1].top;
+            var nLeft = (arrStaticElements.length == 1 || arrStaticElements.length == 0) ? left : arrStaticElements[arrStaticElements.length - 1].left + arrStaticElements[arrStaticElements.length - 1].width + 7;
+        
+            if ((nLeft + text.length * 9) >= clientWidth) { nTop += 30; nLeft = 10; }
+           
+            var newSpan1   = document.createElement('span');
+            newSpan1.innerHTML = '<span class="sp"   onmousedown="mdown_create(this,event)" onmouseup="mup(event)" style="top: ' + nTop + '; left: ' + nLeft + ';width: ' + text.length * 9 + ';height: ' + height + ';">' + text + '</span>';
+            parentElem.appendChild(newSpan1);
+
+            arrStaticElements[id] = new StaticElement(top, nLeft, text.length * 9, height, text);
+            return newSpan1;
+        }
+
+        function SintezElements(firstElement, secondElement) {
+
+            if (firstElement == secondElement) return;
+
+            var parentElem = document.body;
+            var _r1 = firstElement.getBoundingClientRect();
+            var newId = arrElementsPosition.length;
+            var newTop = _r1.top;
+            var newLeft = _r1.left;
+
+            
+            //Найдем комбинацию для синтеза
+            for (var i = 1; i < arrCombinations.length; i++) {
+                if ((arrCombinations[i].first == firstElement.innerHTML && arrCombinations[i].second == secondElement.innerHTML) ||
+                     (arrCombinations[i].first == secondElement.innerHTML && arrCombinations[i].second == firstElement.innerHTML)) {
+
+                    CreateElement(newId, newTop, newLeft, 75, 20, arrCombinations[i].resalt);
+                    arrElementsPosition[newId] = new Position(newTop, newLeft);
+
+                    firstElement.parentNode.removeChild(firstElement);
+                    secondElement.parentNode.removeChild(secondElement);
+
+                    //добавим на полку новый элемент
+                    var pushNewElement = true;
+                    for (var j = 1; j < arrStaticElements.length; j++) {
+                        if (arrStaticElements[j].text == arrCombinations[i].resalt) { pushNewElement = false; }
+                    }
+                    if (pushNewElement) {
+                        var nTop = arrStaticElements[arrStaticElements.length - 1].top;
+                        var nLeft = arrStaticElements[arrStaticElements.length - 1].left + arrStaticElements[arrStaticElements.length - 1].width + 7;
+                        
+                        CreateElementStatic(arrStaticElements.length, nTop, nLeft , 1, 20, arrCombinations[i].resalt)                       
+                    }
+                    break;
+                }
+            }
+
+
+
+            peretask = false;
+
+        }
+
+        function Intersects(r1, r2) {
+
+            br_r1 = r1.getBoundingClientRect();
+            br_r2 = r2.getBoundingClientRect();
+
+            if ((br_r1.left <= br_r2.right) && (br_r2.left <= br_r1.right) && (br_r1.top <= br_r2.bottom) && (br_r2.top <= br_r1.bottom)) return true;
+
+            return false;
+        }
+
+        function clic_body(elem, event) {
+            //alert(peretask)
+        }
+
+        function mdown(elem, e) { // захват элемента
+
+            var event = e || window.event;
+            if (peretask == false) { // если нажата левая кнопка мыши
+                peretask = elem; // записать идентификатор спана
+                MaxZIndex++;
+                peretask.style.zIndex = MaxZIndex;
+                
+                arrElementsPosition[peretask.id].offX = event.clientX - arrElementsPosition[peretask.id].left;
+                arrElementsPosition[peretask.id].offY = event.clientY - arrElementsPosition[peretask.id].top;
+            }
+        }
+
+        function mdown_create(elem, e) { // захват элемента
+           var event = e || window.event;
+           
+            if (peretask == false) {
+               var newId = arrElementsPosition.length;
+               var coord = elem.getBoundingClientRect();
+               var newTop = coord.top;
+               var newLeft = coord.left;
+              
+               CreateElement(newId, newTop, newLeft, 75, 20, elem.innerHTML);
+               peretask = document.getElementById(newId);
+               MaxZIndex++;
+               peretask.style.zIndex = MaxZIndex;
+               arrElementsPosition[peretask.id].offX = event.clientX - arrElementsPosition[peretask.id].left;
+               arrElementsPosition[peretask.id].offY = event.clientY - arrElementsPosition[peretask.id].top;
+            }
+           
+        }
+
+        function drag(e) { //перетаскивание
+            var event = e || window.event;
+            
+            if (peretask != false) { // если записан идентификатор
+                // записать в координаты спана текущее положение курсора мыши с учётом удаления от верхнего левого угла		
+                peretask.style.left = event.clientX - arrElementsPosition[peretask.id].offX;
+                peretask.style.top = event.clientY - arrElementsPosition[peretask.id].offY;              
+            }
+        }
+
+        function mup(e) { // остановить перетаскивание
+            var event = e || window.event;
+            arrElementsPosition[peretask.id].top = event.clientY - arrElementsPosition[peretask.id].offY;
+            arrElementsPosition[peretask.id].left = event.clientX - arrElementsPosition[peretask.id].offX;
+
+            //найдем элементы, которые пересекаются с текущим элементом
+            for (var i = 1; i < arrElementsPosition.length; i++) {
+                ElementById = document.getElementById(i);
+                if (ElementById) {
+                    if (Intersects(peretask, ElementById) && peretask != ElementById) {
+                        SintezElements(peretask, ElementById);
+                        break;
+                    }
+                }
+            }
+
+            peretask = false;
+
+        }
+
+
+    </script>
+</head>
+
+
+<body onmousemove="drag(event)" onmousedown="clic_body(this,event)">
+
+    <hr id="border"/>
+
+    <script type="text/javascript">
+
+        CreateElement(1, 100, 100, 75, 20, "вода");
+        CreateElement(2, 150, 50, 75, 20, "земля");
+        CreateElement(3, 150, 150, 75, 20, "воздух");
+        CreateElement(4, 200, 100, 75, 20, "огонь");
+
+        CreateElementStatic(1, 10, 10, 75, 20, "вода");
+        CreateElementStatic(1, 10, 92, 75, 20, "земля");
+        CreateElementStatic(1, 10, 174, 75, 20, "воздух");
+        CreateElementStatic(1, 10, 256, 75, 20, "огонь");
+
+    </script>
+
+
+
+</body>
+
+
+</html>

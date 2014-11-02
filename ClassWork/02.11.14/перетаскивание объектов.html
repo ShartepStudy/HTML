@@ -1,0 +1,55 @@
+<html>
+<head>
+<style type="text/css">
+.sp{
+	position: absolute;
+	top: 50;
+	left: 50;
+	width: 75;
+	height: 75;
+	cursor: pointer;
+	background-color: greenyellow;
+	border: 3px solid green;
+}
+.sp2{
+   position: absolute;
+   top: 250;
+   left: 250;
+   width: 75;
+   height: 75;
+   cursor: pointer;
+   background-color: greenyellow;
+   border: 3px solid green;
+}
+</style>
+<script type="text/javascript">
+var cur_top = 0;
+var cur_left=0;
+
+var peretask=false; // перетаскиваем мы сейчас объект или нет
+var offX, offY;
+function mdown(elem, e){ // захват элемента
+var event = e || window.event;
+	if(peretask==false){ // если нажата левая кнопка мыши
+		peretask=elem; // записать идентификатор спана
+		offX = event.clientX - elem.offsetLeft; // на сколько пикселей удалён курсор мышки от верхнего левого угла квадратика
+		offY = event.clientY - elem.offsetTop;
+	}
+}
+function drag(e){ //перетаскивание
+var event = e || window.event;
+	if(peretask!=false){ // если записан идентификатор
+	   peretask.style.left = event.clientX-offX; // записать в координаты спана текущее положение курсора мыши с учётом удаления от верхнего левого угла
+		peretask.style.top = event.clientY-offY;
+	}
+}
+function mup(){ // остановить перетаскивание
+	peretask=false; 
+}
+</script>
+</head>
+<body onmousemove="drag(event)">
+<span class="sp" onmousedown="mdown(this,event)" onmouseup="mup()"></span>
+<span class="sp2" onmousedown="mdown(this,event)" onmouseup="mup()"></span>
+</body>
+</html>

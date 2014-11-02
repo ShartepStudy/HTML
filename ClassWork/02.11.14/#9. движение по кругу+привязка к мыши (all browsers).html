@@ -1,0 +1,40 @@
+<body>
+
+    <span id="elemToMove" style="position: absolute; left: 0; top: 0;
+	width: 50; height: 50; border: 2 red solid; background-color: green;">
+	</span>
+	
+	<script>
+	
+	/////////////////////////////////////////////
+	
+	var mouseX = 0, mouseY = 0;
+	
+	window.addEventListener('mousemove', function(e)
+	{
+	
+	mouseX = e.clientX;
+	mouseY = e.clientY;
+	
+	}, false);
+	
+	/////////////////////////////////////////////
+	
+	
+        var R = 100,              // радиус окружности 
+            a = 0,               // угол (в радианах) 
+            da = 12*Math.PI/180,  // приращение угла 
+            delay = 20;          // задержка (в мсек.) 
+        
+       
+        function moveElem() {
+            
+            elemToMove.style.left = mouseX+R*Math.cos(a);
+            elemToMove.style.top  = mouseY+R*Math.sin(a);    
+            
+            a-=da;
+        }
+
+        setInterval (moveElem, delay);
+	</script>
+<body>

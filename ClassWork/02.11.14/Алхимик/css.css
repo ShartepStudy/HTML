@@ -1,0 +1,29 @@
+.addStandartElement {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    
+
+}
+
+.addNewElement {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+
+.addNewElement:hover,.addStandartElement:hover {
+    color: white;
+    transition: background-color 0.5s, color 0.8s;
+   }
+
+body {
+    background-image: url(images/bg.jpg);
+    background-attachment: fixed;
+    background-position: center top;
+    background-color: #3C2E22;
+    background-repeat: repeat-x;
+}

@@ -1,0 +1,8 @@
+<script>
+	for(var i=0;i<100;i++)
+	   document.write("<p id=p"+i+">Text</p>");
+
+	var l=document.getElementsByTagName("p");
+	for(var i=0;i<l.length;i++)
+	document.getElementById(l[i].id).style.color="green";
+</script>

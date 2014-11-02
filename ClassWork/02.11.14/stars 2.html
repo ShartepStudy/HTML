@@ -1,0 +1,29 @@
+<body bgcolor="black" style="overflow:hidden;">
+<script>
+var всего_снежинок=1000;
+var x=new Array(всего_снежинок);
+var y=new Array(всего_снежинок);
+var s=new Array(всего_снежинок);
+
+var h=1024;
+var w=1280;
+
+for(var i=0;i<всего_снежинок;i++){
+	x[i]=Math.random()*w; // разброс по ширине
+	y[i]=Math.random()*h; // разброс по высоте
+	s[i]=Math.random()*5; // разброс по высоте экран
+	document.write("<span id='sp" + i + "' style='font-size: " + (Math.random() * 20) + "px ;color:green; position: absolute; top: " + y[i] + "; left: " + x[i] + ";'>#</span>"); // создание спанов снежинок
+}
+
+function Move(){
+	for(var i=0;i<всего_снежинок;i++){
+		y[i]+=s[i];
+		document.getElementById("sp"+i).style.top=y[i];
+		if(y[i]>h) y[i]-=h+25;
+	}
+}
+
+setInterval(Move,1);
+
+</script>
+</body>

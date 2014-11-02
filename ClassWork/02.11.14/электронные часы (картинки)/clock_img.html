@@ -1,0 +1,40 @@
+<html>
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    </head>
+    <body>
+		<img name="hr_hi" src="images/clock/0.gif" width="82" height="153" />
+		<img name="hr_lo" src="images/clock/0.gif" width="82" height="153" />
+		<img src="images/clock/points.gif" width="82" height="153" />
+		<img name="min_hi" src="images/clock/0.gif" width="82" height="153" />
+		<img name="min_lo" src="images/clock/0.gif" width="82" height="153" />
+		<img src="images/clock/points.gif" width="82" height="153" />
+		<img name="sec_hi" src="images/clock/0.gif" width="82" height="153" />
+		<img name="sec_lo" src="images/clock/0.gif" width="82" height="153" />
+
+
+		<script type="text/javascript">
+			updateClock ();
+			var t = setInterval ("updateClock()", 1000);
+	
+			function format(n){
+				return n<10 ? "0"+n : ""+n;
+			}
+	
+			function updateClock () {				
+				var d = new Date ();
+				var str = format(d.getSeconds());
+				document.images["sec_hi"].src="images/clock/"+str.slice(0,1)+".gif";
+				document.images["sec_lo"].src="images/clock/"+str.slice(1)+".gif";
+				
+				str = format(d.getMinutes());
+				document.images["min_hi"].src="images/clock/"+str.slice(0,1)+".gif";
+				document.images["min_lo"].src="images/clock/"+str.slice(1)+".gif";
+			
+				str = format(d.getHours());
+				document.images["hr_hi"].src="images/clock/"+str.slice(0,1)+".gif";
+				document.images["hr_lo"].src="images/clock/"+str.slice(1)+".gif";				
+			}
+		</script>
+    </body>
+</html>

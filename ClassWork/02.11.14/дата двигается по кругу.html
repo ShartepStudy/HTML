@@ -1,0 +1,78 @@
+<html>
+<head>
+<style>
+p{
+	text-align: center;
+	font-size: 25;
+	font-family: Tahoma;
+	font-weight: 500;
+	margin: 15;
+}
+</style>
+</head>
+<body onmousemove="GetCoords();">
+<div id="div" style="position: absolute; left:0; top: 0; border: 3px solid black;">
+<p id="data"></p>
+<p id="time" style="font-size: 45;"></p>
+</div>
+<script type="text/javascript">
+var R=255, G=0, B=0;
+var sp=25;
+var posX=0, posY=0;
+function GetCoords(){
+	posX=event.x;
+	posY=event.y;
+}
+function Colorize(){
+	div.style.backgroundColor="RGB("+R+","+G+","+B+")";
+	div.style.borderColor="RGB("+B+","+G+","+R+")";
+	data.style.color="RGB("+G+","+B+","+R+")";
+	time.style.color="RGB("+B+","+R+","+G+")";
+	if(R>=255 && G<255 && B<=0) G+=sp; // перейти к жёлтому
+	else if(R>0 && G>=255 && B<=0) R-=sp; // к зелёному
+	else if(R<=0 && G>=255 && B<255) B+=sp; // к голубому
+	else if(R<=0 && G>0 && B>=255) G-=sp; // к синему
+	else if(R<255 && G<=0 && B>=255) R+=sp; // к фиолетовому
+	else if(R>=255 && G<=0 && B>0) B-=sp; // к красному
+}
+function Format(n){
+	return n<10?"0"+n:n;
+}
+function A(){
+	var d=new Date;
+	data.innerText=d.getDate();
+	var str;
+	if(d.getMonth()==0) str="января";
+	else if(d.getMonth()==1) str="февраля";
+	else if(d.getMonth()==2) str="марта";
+	else if(d.getMonth()==3) str="апреля";
+	else if(d.getMonth()==4) str="мая";
+	else if(d.getMonth()==5) str="июня";
+	else if(d.getMonth()==6) str="июля";
+	else if(d.getMonth()==7) str="августа";
+	else if(d.getMonth()==8) str="сентября";
+	else if(d.getMonth()==9) str="октября";
+	else if(d.getMonth()==10) str="ноября";
+	else if(d.getMonth()==11) str="декабря";
+	data.innerText+=" "+str+" "+d.getFullYear()+" года";
+	time.innerText=Format(d.getHours())+" : "+Format(d.getMinutes())+" : "+Format(d.getSeconds());
+}
+var timer=setInterval(A,333);
+var setcolor=setInterval(Colorize,1);
+
+var radius = 80,   
+a = 0,       
+da = 1*Math.PI/60, 
+delay = 1,
+prir;  
+       
+function moveElem() {
+div.style.left = posX + radius*Math.cos(a);
+div.style.top  = posY + radius*Math.sin(a);
+a+=da;
+}
+setInterval(moveElem,1);
+
+</script>
+</body>
+</html>

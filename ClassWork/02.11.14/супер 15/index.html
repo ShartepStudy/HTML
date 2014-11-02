@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <title>Пятнашки</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body onLoad="load()" onResize="resize()">
+	<div id="content">
+		<div id="timeDiv"></div>
+		<div id="stepsDiv"></div>
+		<p id="timeP">0</p>
+		<p id="stepsP">0</p>
+		<!-- Кнопки управления -->
+		<div onmouseover="showTip(tip1, 'Назад в меню')" onmouseout="hideTip()" onmousemove="captureCursor()" onclick="showMenu()" id="backB"></div>
+		<div onmouseover="showTip(tip1, 'Перетасовать')" onmouseout="hideTip()" onmousemove="captureCursor()" onclick="shuffle()" id="restB"></div>
+		<div onmousedown="showSample()" onmouseup="hideSample()" onmouseover="showTip(tip1, 'Образец')" onmouseout="hideTip(); hideSample()" onmousemove="captureCursor()" id="sampleB"></div>
+		<div id="sampleDiv"></div>
+		<div id="gameField">
+			<!-- Кнопки выбора режима -->
+			<div onclick="newGame(1)" id="m1" onmouseover="mouseOver(1)" onmouseout="mouseOut(1)" class="menuElem" ></div>
+			<div onclick="newGame(2)" id="m2" onmouseover="mouseOver(2)" onmouseout="mouseOut(2)" class="menuElem" ></div>
+			<div onclick="newGame(3)" id="m3" onmouseover="mouseOver(3)" onmouseout="mouseOut(3)" class="menuElem" ></div>
+			<div onclick="newGame(4)" id="m4" onmouseover="mouseOver(4)" onmouseout="mouseOut(4)" class="menuElem" ></div>
+			<div onclick="newGame(5)" id="m5" onmouseover="mouseOver(5)" onmouseout="mouseOut(5)" class="menuElem" ></div>
+			<div onclick="newGame(6)" id="m6" onmouseover="mouseOver(6)" onmouseout="mouseOut(6)" class="menuElem" ></div>
+			<div onclick="newGame(7)" id="m7" onmouseover="mouseOver(7)" onmouseout="mouseOut(7)" class="menuElem" ></div>
+			<div onclick="newGame(8)" id="m8" onmouseover="mouseOver(8)" onmouseout="mouseOut(8)" class="menuElem" ></div>
+			<div onclick="newGame(9)" id="m9" onmouseover="mouseOver(9)" onmouseout="mouseOut(9)" class="menuElem" ></div>
+			<!-- Игровые кнопки -->
+			<input onclick="clickSquare(1)" value=" " id="s1" type="button" class="square"/>
+			<input onclick="clickSquare(2)" value=" " id="s2" type="button" class="square"/>
+			<input onclick="clickSquare(3)" value=" " id="s3" type="button" class="square"/>
+			<input onclick="clickSquare(4)" value=" " id="s4" type="button" class="square"/>
+			<input onclick="clickSquare(5)" value=" " id="s5" type="button" class="square"/>
+			<input onclick="clickSquare(6)" value=" " id="s6" type="button" class="square"/>
+			<input onclick="clickSquare(7)" value=" " id="s7" type="button" class="square"/>
+			<input onclick="clickSquare(8)" value=" " id="s8" type="button" class="square"/>
+			<input onclick="clickSquare(9)" value=" " id="s9" type="button" class="square"/>
+			<input onclick="clickSquare(10)" value=" " id="s10" type="button" class="square"/>
+			<input onclick="clickSquare(11)" value=" " id="s11" type="button" class="square"/>
+			<input onclick="clickSquare(12)" value=" " id="s12" type="button" class="square"/>
+			<input onclick="clickSquare(13)" value=" " id="s13" type="button" class="square"/>
+			<input onclick="clickSquare(14)" value=" " id="s14" type="button" class="square"/>
+			<input onclick="clickSquare(15)" value=" " id="s15" type="button" class="square"/>
+			<input onclick="clickSquare(16)" value=" " id="s16" type="button" class="square"/>
+		</div>
+	</div>
+	<span class="tooltip" id="tip1"></span>
+</body>
+</html>

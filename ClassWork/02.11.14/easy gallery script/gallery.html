@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title> Gallery James (:</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+	</head>
+	<body>
+		<div id="block">
+			<h2 id="zag">Hide 'n' Seek</h2>
+			<img src="./img/Hide.jpg" alt="Хид" name="big" width="430px" height="150px" />
+			<br />
+			<div id="buttom">
+				<img  src="./img/key/start_black.png" name="start" onclick="Start()" />
+				<img  src="./img/key/prev_black.png" name="prev" onclick="Prev()" />
+				<img  src="./img/key/next_black.png" name="next" onclick="Next()" />
+				<img  src="./img/key/end_black.png" name="end" onclick="End()" />
+			</div>
+		</div>
+		<script type="text/javascript">
+		var count=0; //счетчик изображения
+		var srcImage = new Array('./img/Hide.jpg','./img/awp_india.jpg','./img/Floppy.jpg','./img/FloppyTown.jpg','./img/Seek.jpg','./img/Town.jpg');
+		var h2Text= new Array("Hide 'n' Seek", 'FloppyTown', '1st (;','2st (;','3st (;','4st (;');
+		var elem = document.images['big'];
+		var zagolovok=document.getElementById('zag');
+		document.images['start'].src='./img/key/start_grey.png';
+		document.images['prev'].src='./img/key/prev_grey.png';
+
+		function Next(){  //К следущей 
+			//отображаем старт и пред		
+			document.images['start'].src='./img/key/start_black.png';
+			document.images['prev'].src='./img/key/prev_black.png';
+			if( count < srcImage.length -1 ){
+				count++;
+				elem.src=srcImage[count];
+				zagolovok.innerHTML=h2Text[count];
+			}
+			if( count == srcImage.length -1 ){
+				// если последнее, скрываем кнопки
+				document.images['end'].src='./img/key/end_grey.png';
+				document.images['next'].src='./img/key/next_grey.png';
+			}
+			
+		}
+		
+			function Prev(){  //Назад
+			// отображаем кнопки
+			document.images['end'].src='./img/key/end_black.png';
+			document.images['next'].src='./img/key/next_black.png';
+			
+			if( count > 0 ){
+			count--;
+			elem.src=srcImage[count];
+			zagolovok.innerHTML=h2Text[count];
+			}
+			if( count == 0 ){
+				// если первое, скрываем кнопки
+				
+				document.images['start'].src='./img/key/start_grey.png';
+				document.images['prev'].src='./img/key/prev_grey.png';
+			}
+				
+		}
+		function End(){   //К последней
+			count=srcImage.length-1;
+			elem.src=srcImage[count];
+			zagolovok.innerHTML=h2Text[count];
+			
+			// скрываем кнопки
+			document.images['end'].src='./img/key/end_grey.png';
+			document.images['next'].src='./img/key/next_grey.png';
+			
+			// отображаем кнопки
+			document.images['start'].src='./img/key/start_black.png';
+			document.images['prev'].src='./img/key/prev_black.png';
+		
+		}
+			function Start(){   //К первой
+				count=0;
+				elem.src=srcImage[count];
+				zagolovok.innerHTML=h2Text[count];
+				// скрываем кнопки
+				document.images['start'].src='./img/key/start_grey.png';
+				document.images['prev'].src='./img/key/prev_grey.png';
+				// отображаем кнопки
+				document.images['end'].src='./img/key/end_black.png';
+				document.images['next'].src='./img/key/next_black.png';
+		}
+		</script>
+	</body>
+</html>

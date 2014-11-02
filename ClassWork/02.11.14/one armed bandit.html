@@ -1,0 +1,243 @@
+<HTML>
+<head>
+<body bgcolor="yellow-green">
+<style>
+select{
+    width:240px;
+}
+option{
+    text-align: center;
+}
+.slots{
+    padding:240px;
+    background-color: #AAAACC;
+    border: 2px solid #8888AA;
+    width:240px;
+}
+.message{
+    padding:20px;
+    width:855px;
+    background-color: #AAAACC;
+    border: 2px solid #8888AA;
+    text-align: center;
+    color: purple;
+    font-size: 20px;
+}
+.arm{
+    width:135px;
+    height: 87px;
+    color: #003399;
+    background-color: #9999BB;
+    border: 2px solid #777799;
+}
+</style>
+<script>
+var tokens = 5;
+var wheels, wheels_cur, wheels_tar;
+var choices = ["вишня","банан","яблоко","вишня","лемон","вишня","банан","7","банан","лемон","яблоко","777","[BAR]","яблоко","лемон"];
+
+function MakeEm(){
+    var i, slots, a_wheel;
+    slots = document.getElementById("bandit");
+    slots.innerHTML = "";
+    a_wheel = "<select name='wheel' size='5'></select>";
+    for(i = 0;i<3;i++){
+        slots.innerHTML += a_wheel;
+    }
+    wheels = document.getElementsByName("wheel");
+    wheels_cur = new Array(wheels.length);
+    wheels_tar = new Array(wheels.length);
+    var x;
+    for(x=0;x<wheels.length;x++){
+        wheels_cur[x] = 0;
+    }
+    GraphEm();
+    frmChoice.txtTokens.value="5";
+}
+
+function SpinEm(){
+    var x, y;
+    y = 0;
+    for(x=0;x<wheels.length;x++){
+        y = Math.floor((Math.random() * choices.length) + y + 2 * choices.length);
+        wheels_tar[x] = (wheels_cur[x] + y);
+    }
+    setTimeout("NudgeEm();",10);
+    document.getElementById("slot_arm").disabled = true;
+}
+
+function NudgeEm(){
+    var x;
+    var done = true;
+    for(x=0;x<wheels.length;x++){
+        if(wheels_tar[x] != wheels_cur[x]){
+            wheels_cur[x] = (wheels_cur[x] + 1);
+            done = false;
+        }
+    }
+    GraphEm();
+    for(x=0;x<wheels.length;x++){
+        if(wheels_tar[x] == wheels_cur[x]){
+            wheels[x].selectedIndex=2;
+        }
+    }
+    if(done){
+        PayEm();
+    }
+    else{
+        setTimeout("NudgeEm();",20);
+    }
+}
+
+function GraphEm(){
+    var x;
+    var y;
+    var opt;
+    for(x = 0;x < wheels.length;x++){
+        CleanEm(wheels[x]);
+        for(y = 0;y < 5;y++){
+            opt = ((choices.length - 1) + wheels_cur[x] - 1 + y) % choices.length;
+            wheels[x].options[y] = new Option(choices[opt],choices[opt]);
+        }
+    }
+}
+
+function CleanEm(elem){
+    var i;
+    for(i=elem.options.length-1;i>=0;i--){
+        elem.options[i] = null;
+    }
+}
+
+function PayEm(){
+    //center row
+    // 1 cherry - 1 tokens
+    // 2 cherry - 5 tokens
+    // 2 fruit + 1 cherry  - 25 tokens
+    // 3 fruit  - 25 tokens
+    // 3 cherry - 25 tokens
+    // 2 7's    - 35 tokens
+    // 2 777's  - 35 tokens
+    // 2 7's, 1 777 - 40 tokens
+    // 1 7, 2 777's - 50 tokens
+    // 3 7's   - 125 tokens
+    // 3 777's - 250 tokens
+    // 3 bars - 500 tokens
+    var x;
+    var вишни, apples, melons, bananas, sevens, triples, bars;
+    cherries = 0;
+    apples = 0;
+    melons = 0;
+    bananas = 0;
+    sevens = 0;
+    triples = 0;
+    bars = 0;
+    for(x=0;x<wheels.length;x++){
+        switch(wheels[x].options[2].value){
+            case "вишня":
+                cherries++;
+                break;
+            case "яблоко":
+                apples++;
+                break;
+            case "melon":
+                melons++;
+                break;
+            case "banana":
+                bananas++;
+                break;
+            case "7":
+                sevens++;
+                break;
+            case "777":
+                triples++;
+                break;
+            case "[bar]":
+                bars++;
+                break;
+        }    
+    }
+    if(bars == 3){
+        FlashEm(500);
+    }
+    else if(triples == 3){
+        FlashEm(250);
+    }
+    else if(sevens == 3){
+        FlashEm(125);
+    }
+    else if((triples == 2)&&(sevens==1)){
+        FlashEm(50);
+    }
+    else if((triples == 1)&&(sevens==2)){
+        FlashEm(40);
+    }
+    else if(cherries==3){
+        FlashEm(25);
+    }
+    else if((apples == 3)||(melons==3)||(bananas==3)){
+        FlashEm(25);
+    }
+    else if(cherries==2){
+        FlashEm(15);
+    }
+    else if(((apples == 2)||(melons==2)||(bananas==2))&&(cherries==1)){
+            FlashEm(25);
+    }
+    else if((triples == 2)||(sevens==2)){
+        FlashEm(35);
+    }
+    else if(cherries==1){
+        FlashEm(1);
+    }
+        document.getElementById("slot_arm").disabled = false;
+}
+
+function FlashEm(num){
+    var msg = document.getElementById("message");
+    if(msg.style.borderColor != "red"){
+        msg.innerText = "ВЫИГРАЛ=(";
+        msg.style.borderStyle = "dotted";
+        msg.style.borderColor = "red";
+    }
+    else{
+        msg.innerText = "ВЫИГРАЛ=(";
+        msg.style.borderStyle = "dashed";
+        msg.style.borderColor = "yellow";
+    }
+    if(num == 0){
+        msg.innerText = "Продолжай!";
+        msg.style.borderStyle = "solid";
+        msg.style.borderColor = "#AAAACC";
+    }
+    else{
+        frmChoice.txtTokens.value = parseInt(frmChoice.txtTokens.value) + 1;
+        setTimeout("FlashEm(" + (num - 1) + ");",100);
+    }
+}
+
+function ChargeEm(){
+    var amt = parseInt(frmChoice.txtTokens.value);
+    if(amt == 0){
+        alert("Лузер.=)")
+    }
+    else{
+        amt = amt - 1;
+        frmChoice.txtTokens.value = amt;
+    }
+
+    SpinEm();
+}
+</script>
+</head>
+<body onLoad="MakeEm();">
+<span class="message" id="message">Однорукий Бандит</span><br>
+<span id="bandit" class="go">
+</span>
+<input type="button" onClick="ChargeEm();" value="go" class="arm" id="slot_arm">
+<form name="frmChoice">
+Tokens: <input type="text" name="txtTokens" value="0" readonly>
+</form>
+
+</body>
+</html> 

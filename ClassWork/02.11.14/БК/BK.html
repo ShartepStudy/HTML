@@ -1,0 +1,238 @@
+<html>
+<head>
+<title>
+Бойцовский клуб
+</title>
+<script type="text/javascript">
+var rnd=1;
+var my_health=rnd*100;
+var cp_health=rnd*100;
+var name1="sunmeat";
+var name2="hacker";
+var my_damage=1;
+var combo=0;
+var cp_damage=1;
+var combo2=0;
+</script>
+</head>
+<body style="background-color: black;">
+<bgsound id="eff" src="">
+<bgsound src="Snd/Main.WAV" loop=-1>
+<!-- document.all.sound.src -->
+
+<p id="header" style="text-align: center; font-size: 50px; color: red; font-family: Arial;">Бойцовский клуб</p>
+<p id="round" style="text-align: center; font-size: 25px; color: green; font-family: Arial;">Раунд 1</p>
+<img style="position: absolute; left: 100; top: 200; border: 3px double gray;" src="1.jpg" alt="Это я!" />
+<img style="position: absolute; right: 100; top: 200; border: 3px double gray;" src="2.jpg" alt="А это мой враг!" />
+<span id="n1" style="position: absolute; left: 100; top: 170; color: orange; font-family: Arial; font-size: 20px;">sunmeat</span>
+<span id="n2" style="position: absolute; right: 100; top: 170; color: orange; font-family: Arial; font-size: 20px;">hacker</span>
+<span   style="height: 15; width: 250; position: absolute; left: 100; top: 400; background-color: darkred;"></span>
+<span   style="height: 15; width: 250; position: absolute; right: 100; top: 400; background-color: darkred;"></span>
+<span id="sw1" style="height: 15; width: 250; position: absolute; left: 100; top: 400; background-color: red;"></span>
+<span id="sw2" style="height: 15; width: 250; position: absolute; right: 100; top: 400; background-color: red;"></span>
+<span  id="sh2" style="font-size: 15px; font-family: Arial; position: absolute; right: 117; top: 401; color: white;">100 / 100</span>
+<span  id="sh1" style="font-size: 15px; font-family: Arial; position: absolute; left: 117; top: 401; color: white;">100 / 100</span>
+
+<span  style="font-size: 16px; font-family: Arial; position: absolute; left: 350; top: 200; color: blue;">Атака</span>
+
+<form>
+<input id="ar1" style="position: absolute; left: 300; top: 230;" type="radio" name="r1" checked />
+<label style="font-size: 12px; font-family: Arial; position: absolute; left: 325; top: 232; color: white;" for="r1">удар в голову</label>
+<input id="ar2" style="position: absolute; left: 300; top: 260;" type="radio" name="r1" />
+<label style="font-size: 12px; font-family: Arial; position: absolute; left: 325; top: 262; color: white;" for="r1">удар в грудь</label>
+<input id="ar3" style="position: absolute; left: 300; top: 290;" type="radio" name="r1" />
+<label style="font-size: 12px; font-family: Arial; position: absolute; left: 325; top: 292; color: white;" for="r1">удар в живот</label>
+<input id="ar4" style="position: absolute; left: 300; top: 320;" type="radio" name="r1" />
+<label style="font-size: 12px; font-family: Arial; position: absolute; left: 325; top: 322; color: white;" for="r1">удар по рукам</label>
+<input id="ar5" style="position: absolute; left: 300; top: 350;" type="radio" name="r1" />
+<label style="font-size: 12px; font-family: Arial; position: absolute; left: 325; top: 352; color: white;" for="r1">удар по ногам</label>
+</form>
+
+<span  style="font-size: 16px; font-family: Arial; position: absolute; right: 350; top: 200; color: blue;">Защита</span>
+
+<form>
+<input id="rr1" style="position: absolute; right: 300; top: 230;" type="radio" name="r2" checked />
+<label style="font-size: 12px; font-family: Arial; position: absolute; right: 325; top: 232; color: white;" for="r2">блок головы и груди</label>
+<input id="rr2" style="position: absolute; right: 300; top: 260;" type="radio" name="r2" />
+<label style="font-size: 12px; font-family: Arial; position: absolute; right: 325; top: 262; color: white;" for="r2">блок груди и живота</label>
+<input id="rr3" style="position: absolute; right: 300; top: 290;" type="radio" name="r2" />
+<label style="font-size: 12px; font-family: Arial; position: absolute; right: 325; top: 292; color: white;" for="r2">блок живота и рук</label>
+<input id="rr4" style="position: absolute; right: 300; top: 320;" type="radio" name="r2" />
+<label style="font-size: 12px; font-family: Arial; position: absolute; right: 325; top: 322; color: white;" for="r2">блок рук и ног</label>
+<input id="rr5" style="position: absolute; right: 300; top: 350;" type="radio" name="r2" />
+<label style="font-size: 12px; font-family: Arial; position: absolute; right: 325; top: 352; color: white;" for="r2">блок ног и головы</label>
+</form>
+
+<form>
+<input onclick="Hit()" style="position: absolute; top: 400; left: 450;" type="button" value="Стукнуть!"/>
+</form>
+
+<span id="comment" style="position: absolute; left: 100; top: 450; color: gray;"></span>
+
+<script type="text/javascript">
+
+function CT(){
+document.getElementById("n2").style.color="orange"
+}
+function Hit(){
+
+if(my_health!=0 && cp_health!=0){
+var dm_head=0, dm_tors=0, dm_zhiv=0, dm_ruk=0, dm_nog=0;
+var dc_head=0, dc_tors=0, dc_zhiv=0, dc_ruk=0, dc_nog=0;
+
+var am_ht=0, am_tz=0, am_zr=0, am_rn=0, am_nh=0;
+var ac_ht=0, ac_tz=0, ac_zr=0, ac_rn=0, ac_nh=0;
+
+	if(document.getElementById("ar1").checked) dm_head=1; // мои удары
+	else if(document.getElementById("ar2").checked) dm_tors=1;
+	else if(document.getElementById("ar3").checked) dm_zhiv=1;
+	else if(document.getElementById("ar4").checked) dm_ruk=1;
+	else if(document.getElementById("ar5").checked) dm_nog=1;
+	
+	if(document.getElementById("rr1").checked) am_ht=1; // моя защита
+	else if(document.getElementById("rr2").checked) am_tz=1;
+	else if(document.getElementById("rr3").checked) am_zr=1;
+	else if(document.getElementById("rr4").checked) am_rn=1;
+	else if(document.getElementById("rr5").checked) am_nh=1;
+	
+	var comp_def=parseInt(Math.random()*5);
+	if(comp_def==0) ac_ht=1; // защита компа
+	else if(comp_def==1) ac_tz=1;
+	else if(comp_def==2) ac_zr=1;
+	else if(comp_def==3) ac_rn=1;
+	else if(comp_def==4) ac_nh=1;
+	
+	var uron=0; // моя тычка
+	if(dm_head==1 && ac_ht==0 && ac_nh==0) uron=parseInt(Math.random()*15)+my_damage; // 1-15 голова
+	else if(dm_tors==1 && ac_tz==0 && ac_ht==0) uron=parseInt(Math.random()*10)+my_damage; // 1-10 грудь
+	else if(dm_zhiv==1 && ac_zr==0 && ac_tz==0) uron=parseInt(Math.random()*12)+my_damage; // 1-12 живот
+	else if(dm_ruk==1 && ac_zr==0 && ac_rn==0) uron=parseInt(Math.random()*8)+my_damage; // 1-8 руки
+	else if(dm_nog==1 && ac_rn==0 && ac_nh==0) uron=parseInt(Math.random()*5)+my_damage; // 1-5 ноги
+	
+	if(uron>0) combo++;
+	if(uron==0) combo=0;
+	if(combo==5){ // пять подряд успешных тычек +1 к атаке
+	my_damage++;
+	combo=0;
+	}
+	cp_health-=uron;
+	document.getElementById("eff").src="Snd/snd ("+parseInt(Math.random()*38)+").WAV";
+	if(cp_health<0) cp_health=0;
+	
+	document.getElementById("sh2").innerText=cp_health+" / "+100*rnd;
+	document.getElementById("sw2").style.width=cp_health/(rnd*100)*250;
+	
+	var comm;
+	var place;
+	if(dm_head==1) place=" в голову ";
+	else if(dm_tors==1) place=" в грудь ";
+	else if(dm_zhiv==1) place=" в живот ";
+	else if(dm_ruk==1) place=" по рукам ";
+	else if(dm_nog==1) place=" по ногам ";
+	var res;
+	if(uron==0) res="и промахивается.";
+	else if(cp_health==0){
+		res="и добивает противника. "+name1+" побеждает в сражении!";
+	}
+	else res="и повреждает "+uron+" единиц здоровья противника. "+name2+" почёсывает ушибленное место и контратакует.";
+	comm=name1+" наносит сокрушительный удар"+place+res;
+	document.getElementById("comment").innerText=comm;
+	
+	/////////////////////////////////////////// ход компа
+	if(cp_health==0){
+		rnd++;
+		my_health=cp_health=rnd*100;
+		document.getElementById("round").innerText="Раунд "+rnd;
+	}
+	else if(cp_health>0){
+	
+	document.getElementById("n2").style.color="white";
+	
+	var comp_att=parseInt(Math.random()*5);
+	if(comp_att==0) dc_head=1; // удар компа
+	else if(comp_att==1) dc_tors=1;
+	else if(comp_att==2) dc_zhiv=1;
+	else if(comp_att==3) dc_ruk=1;
+	else if(comp_att==4) dc_nog=1;
+	
+	var uron2=0;
+	if(dc_head==1 && am_ht==0 && am_nh==0) uron2=parseInt(Math.random()*15)+cp_damage; // 1-15 голова
+	else if(dc_tors==1 && am_tz==0 && am_ht==0) uron2=parseInt(Math.random()*10)+cp_damage; // 1-10 грудь
+	else if(dc_zhiv==1 && am_zr==0 && am_tz==0) uron2=parseInt(Math.random()*12)+cp_damage; // 1-12 живот
+	else if(dc_ruk==1 && am_zr==0 && am_rn==0) uron2=parseInt(Math.random()*8)+cp_damage; // 1-8 руки
+	else if(dc_nog==1 && am_rn==0 && am_nh==0) uron2=parseInt(Math.random()*5)+cp_damage; // 1-5 ноги
+	
+	
+	if(uron2>0) combo2++;
+	if(uron2==0) combo2=0;
+	if(combo2==5){ // пять подряд успешных тычек +1 к атаке
+	cp_damage++;
+	combo2=0;
+	}
+	
+	my_health-=uron2;
+	if(my_health<0) my_health=0;
+	
+	document.getElementById("sh1").innerText=my_health+" / "+100*rnd;
+	document.getElementById("sw1").style.width=my_health/(rnd*100)*250;
+	
+	
+		var com2;
+		var place2;
+		if(dc_head==1) place2=" в голову ";
+		else if(dc_tors==1) place2=" в грудь ";
+		else if(dc_zhiv==1) place2=" в живот ";
+		else if(dc_ruk==1) place2=" по рукам ";
+		else if(dc_nog==1) place2=" по ногам ";
+		var res2;
+		if(uron2==0) res2="и промазал.";
+		else if(my_health==0) res2="и добивает противника. "+name2+" побеждает в сражении!";
+		else res2="и повреждает "+uron2+" единиц здоровья противника. "+name1+" почёсывает ушибленное место и готовится к очередному удару.";
+		com2=name2+" нанёс не менее сокрушительный удар"+place2+res2;
+		document.getElementById("comment").innerText=document.getElementById("comment").innerText+"\n"+com2;
+		setTimeout(CT,300);
+		
+		if(my_health==0) alert("Солнечное мясо с позором проиграло!!!");
+	}
+	
+}
+}
+</script>
+
+<script type="text/javascript">
+var r=0, n=0;
+var t=16;
+function Blink(){
+	document.getElementById("header").style.color="rgb("+r+",0,0)";
+	if(n==0) r+=t;
+	if(r>256) n=1;
+	if(n==1&&r>0) r-=t;
+	if(r==0&&n==1) n=0;
+}
+setInterval(Blink,10);
+</script>
+<script type="text/javascript">
+function Morg(){
+	if(document.getElementById("n1").style.color=="orange"){
+	document.getElementById("n1").style.color="white";
+	}
+	else{
+	document.getElementById("n1").style.color="orange";
+	}
+}
+setInterval(Morg,100);
+</script>
+<script type="text/javascript">
+var s=25;
+var w=0;
+function Size(){
+	document.getElementById("round").style.fontSize=s;
+	if(w==0&&s<30) s++;
+	if(s==30) w=1;
+	if(w==1&&s>20) s--;
+	if(s==20) w=0;
+}
+setInterval(Size,10);
+</script>
+</body>
+</html>
