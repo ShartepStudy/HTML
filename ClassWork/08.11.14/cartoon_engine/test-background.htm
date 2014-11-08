@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Документ без названия</title>
+<script type="text/javascript" src="core_engine/scriptjava.js"></script>
+</head>
+
+<body>
+
+<a href="http://scriptjava.net/" target="_blank" >
+	<div id="cartoon"></div>
+</a>
+
+<br /><br /><br /><br /><br />
+<span id="cartoon_play_1">крутить 1 мульт по кругу</span><br />
+<span id="cartoon_play_2">сыграть 1 мульт 1 раз</span><br />
+<span id="cartoon_play_3">крутить 2 мульт по кругу</span><br />
+<span id="cartoon_play_4">сыграть 2 мульт 1 раз</span><br />
+<span id="cartoon_play_5">сыграть 2 мульта 1 раз</span><br />
+<span id="cartoon_play_6">крутить 2 мульта по кругу</span><br />
+<span id="cartoon_play_7">крутить 3 мульта 1 раз</span><br />
+<span id="cartoon_play_8">крутить 3 мульта по кругу</span><br />
+<span id="cartoon_play_9">крутить 2 мульт туда и обратно</span><br />
+<span id="cartoon_play_10">крутить 1 мульт обратно по кругу</span><br />
+
+<span id="cartoon_play_11">крутить 4 мульт по кругу</span><br />
+
+<span id="cartoon_play_12">крутить 5 мульт по кругу</span><br />
+<span id="cartoon_play_13">крутить 6 мульт по кругу</span><br />
+
+<span id="cartoon_play_14">Получить 5-й кадр из первой строки</span><br />
+<span id="cartoon_play_15">Получаю 2-й кадр из третей строки</span><br />
+
+
+<script type="text/javascript" src="core_engine/cartoon_background.js"></script>
+
+<script type="text/javascript">
+/**
+* устанавливаем кнопкам события
+* код при нажатии на кнопки
+*/
+
+	//создаю обьекты
+	var cartoon_background1=new cartoon_background();
+	var cartoon_background2=new cartoon_background();
+	var cartoon_background3=new cartoon_background();
+	var cartoon_background4=new cartoon_background();
+	var cartoon_background5=new cartoon_background();
+	var cartoon_background6=new cartoon_background();
+	var cartoon_background7=new cartoon_background();
+	var cartoon_background8=new cartoon_background();
+	var cartoon_background9=new cartoon_background();
+	var cartoon_background10=new cartoon_background();
+	var cartoon_background11=new cartoon_background();
+	var cartoon_background12=new cartoon_background();
+	var cartoon_background13=new cartoon_background();
+	var cartoon_background14=new cartoon_background();
+	var cartoon_background15=new cartoon_background();
+	var cartoon_background16=new cartoon_background();
+	var cartoon_background17=new cartoon_background();
+	var cartoon_background18=new cartoon_background();
+	var cartoon_background19=new cartoon_background();
+	var cartoon_background20=new cartoon_background();
+	var cartoon_background21=new cartoon_background();
+	var cartoon_background22=new cartoon_background();
+	
+	//останавливаю все мульты
+	var stop_all=function () {
+		cartoon_background1.stop();
+		cartoon_background2.stop();
+		cartoon_background3.stop();
+		cartoon_background4.stop();
+		cartoon_background5.stop();
+		cartoon_background6.stop();
+		cartoon_background7.stop();
+		cartoon_background8.stop();
+		cartoon_background9.stop();
+		cartoon_background10.stop();
+		cartoon_background11.stop();
+		cartoon_background12.stop();
+		cartoon_background13.stop();
+		cartoon_background14.stop();
+		cartoon_background15.stop();
+		cartoon_background16.stop();
+		cartoon_background17.stop();
+		cartoon_background18.stop();
+		cartoon_background19.stop();
+		cartoon_background20.stop();
+		cartoon_background21.stop();
+		cartoon_background22.stop();
+	}
+
+var cartoon_set_1 = function() {
+	stop_all();
+	cartoon_background1.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test.png',//ссылка на изображение
+			frames_x:60,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:12120,//ширина изображения
+			height:193,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:false,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+}
+
+var cartoon_set_2 = function() {
+	stop_all();
+	cartoon_background2.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test.png',//ссылка на изображение
+			frames_x:60,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:12120,//ширина изображения
+			height:193,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+}
+
+var cartoon_set_3 = function() {
+	stop_all();
+	cartoon_background3.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test1.png',//ссылка на изображение
+			frames_x:65,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:2925,//ширина изображения
+			height:144,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:false,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+}
+
+var cartoon_set_4 = function() {
+	stop_all();
+	cartoon_background4.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test1.png',//ссылка на изображение
+			frames_x:65,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:2925,//ширина изображения
+			height:144,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+}
+
+var cartoon_set_5 = function() {
+	stop_all();
+	cartoon_background5.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test.png',//ссылка на изображение
+			frames_x:60,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:12120,//ширина изображения
+			height:193,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				cartoon_background6.play({
+					id:'cartoon',//id div элемента
+					src:'test_img/test1.png',//ссылка на изображение
+					frames_x:65,//количество кадров на изображении по x
+					frames_y:1,//количество кадров на изображении по y
+					width:2925,//ширина изображения
+					height:144,//высота изображения
+					fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+					reverse:false,//если true то проигрывается с конца в начало
+					playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+					next: function () {//выполнится только если playandstop==true
+						//сюда можно пысать следующий код который будет выполняться после завершения анимации
+					}
+				});
+			}
+		});
+}
+
+var cartoon_set_6 = function() {
+	stop_all();
+	cartoon_background7.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test.png',//ссылка на изображение
+			frames_x:60,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:12120,//ширина изображения
+			height:193,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				cartoon_background8.play({
+					id:'cartoon',//id div элемента
+					src:'test_img/test1.png',//ссылка на изображение
+					frames_x:65,//количество кадров на изображении по x
+					frames_y:1,//количество кадров на изображении по y
+					width:2925,//ширина изображения
+					height:144,//высота изображения
+					fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+					reverse:false,//если true то проигрывается с конца в начало
+					playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+					next: function () {//выполнится только если playandstop==true
+						cartoon_set_6();
+					}
+				});
+			}
+		});
+}
+
+var cartoon_set_7 = function() {
+	stop_all();
+	cartoon_background9.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test.png',//ссылка на изображение
+			frames_x:60,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:12120,//ширина изображения
+			height:193,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				cartoon_background10.play({
+					id:'cartoon',//id div элемента
+					src:'test_img/test1.png',//ссылка на изображение
+					frames_x:65,//количество кадров на изображении по x
+					frames_y:1,//количество кадров на изображении по y
+					width:2925,//ширина изображения
+					height:144,//высота изображения
+					fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+					reverse:false,//если true то проигрывается с конца в начало
+					playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+					next: function () {//выполнится только если playandstop==true
+						cartoon_background11.play({
+							id:'cartoon',//id div элемента
+							src:'test_img/test2.png',//ссылка на изображение
+							frames_x:33,//количество кадров на изображении по x
+							frames_y:1,//количество кадров на изображении по y
+							width:3729,//ширина изображения
+							height:180,//высота изображения
+							fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+							reverse:false,//если true то проигрывается с конца в начало
+							playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+							next: function () {//выполнится только если playandstop==true
+								//сюда можно пысать следующий код который будет выполняться после завершения анимации
+							}
+						});
+					}
+				});
+			}
+		});
+}
+
+var cartoon_set_8 = function() {
+	stop_all();
+	cartoon_background12.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test.png',//ссылка на изображение
+			frames_x:60,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:12120,//ширина изображения
+			height:193,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				cartoon_background13.play({
+					id:'cartoon',//id div элемента
+					src:'test_img/test1.png',//ссылка на изображение
+					frames_x:65,//количество кадров на изображении по x
+					frames_y:1,//количество кадров на изображении по y
+					width:2925,//ширина изображения
+					height:144,//высота изображения
+					fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+					reverse:false,//если true то проигрывается с конца в начало
+					playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+					next: function () {//выполнится только если playandstop==true
+						cartoon_background14.play({
+							id:'cartoon',//id div элемента
+							src:'test_img/test2.png',//ссылка на изображение
+							frames_x:33,//количество кадров на изображении по x
+							frames_y:1,//количество кадров на изображении по y
+							width:3729,//ширина изображения
+							height:180,//высота изображения
+							fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+							reverse:false,//если true то проигрывается с конца в начало
+							playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+							next: function () {//выполнится только если playandstop==true
+								cartoon_set_8();
+							}
+						});
+					}
+				});
+			}
+		});
+}
+
+var cartoon_set_9 = function() {
+	stop_all();
+	cartoon_background15.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test1.png',//ссылка на изображение
+			frames_x:65,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:2925,//ширина изображения
+			height:144,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				cartoon_background16.play({
+					id:'cartoon',//id div элемента
+					src:'test_img/test1.png',//ссылка на изображение
+					frames_x:65,//количество кадров на изображении по x
+					frames_y:1,//количество кадров на изображении по y
+					width:2925,//ширина изображения
+					height:144,//высота изображения
+					fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+					reverse:true,//если true то проигрывается с конца в начало
+					playandstop:true,//если true то проиграть 1 раз и передать управление функции next
+					next: function () {//выполнится только если playandstop==true
+						cartoon_set_9();
+					}
+				});
+			}
+		});
+}
+
+var cartoon_set_10 = function() {
+	stop_all();
+	cartoon_background17.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test.png',//ссылка на изображение
+			frames_x:60,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:12120,//ширина изображения
+			height:193,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:true,//если true то проигрывается с конца в начало
+			playandstop:false,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+}
+
+
+var cartoon_set_11 = function() {
+	stop_all();
+	cartoon_background18.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test3.png',//ссылка на изображение
+			frames_x:6,//количество кадров на изображении по x
+			frames_y:3,//количество кадров на изображении по y
+			width:486,//ширина изображения
+			height:307,//высота изображения
+			fps:3,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:false,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+}
+
+
+var cartoon_set_12 = function() {
+	stop_all();
+	cartoon_background19.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test4.png',//ссылка на изображение
+			frames_x:1,//количество кадров на изображении по x
+			frames_y:72,//количество кадров на изображении по y
+			width:42,//ширина изображения
+			height:2592,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:false,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+}
+
+var cartoon_set_13 = function() {
+	stop_all();
+	cartoon_background20.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test5.png',//ссылка на изображение
+			frames_x:1,//количество кадров на изображении по x
+			frames_y:72,//количество кадров на изображении по y
+			width:70,//ширина изображения
+			height:4536,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:false,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+}
+
+
+var cartoon_set_14 = function() {
+	stop_all();
+	cartoon_background21.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test3.png',//ссылка на изображение
+			frames_x:6,//количество кадров на изображении по x
+			frames_y:3,//количество кадров на изображении по y
+			width:486,//ширина изображения
+			height:307,//высота изображения
+			fps:1,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:true,//если true то проигрывается с конца в начало
+			playandstop:false,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+	stop_all();
+	cartoon_background21.getframe(5,1);//получаю 5 кадр по x из 1-ой строки
+}
+
+var cartoon_set_15 = function() {
+	stop_all();
+	cartoon_background22.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test3.png',//ссылка на изображение
+			frames_x:6,//количество кадров на изображении по x
+			frames_y:3,//количество кадров на изображении по y
+			width:486,//ширина изображения
+			height:307,//высота изображения
+			fps:1,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:true,//если true то проигрывается с конца в начало
+			playandstop:false,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+	stop_all();
+	cartoon_background22.getframe(2,3);//получаю 2 кадр по x из 3-ой строки
+}
+
+$$r(function() {//если документ полностью загрузился выполняю код
+	//добавляю события кнопкам при нажатии
+	$$e.add($$('cartoon_play_1'),'click',cartoon_set_1);
+	$$e.add($$('cartoon_play_2'),'click',cartoon_set_2);
+	$$e.add($$('cartoon_play_3'),'click',cartoon_set_3);
+	$$e.add($$('cartoon_play_4'),'click',cartoon_set_4);
+	$$e.add($$('cartoon_play_5'),'click',cartoon_set_5);
+	$$e.add($$('cartoon_play_6'),'click',cartoon_set_6);
+	$$e.add($$('cartoon_play_7'),'click',cartoon_set_7);
+	$$e.add($$('cartoon_play_8'),'click',cartoon_set_8);
+	$$e.add($$('cartoon_play_9'),'click',cartoon_set_9);
+	$$e.add($$('cartoon_play_10'),'click',cartoon_set_10);
+	
+	$$e.add($$('cartoon_play_11'),'click',cartoon_set_11);
+	
+	$$e.add($$('cartoon_play_12'),'click',cartoon_set_12);
+	$$e.add($$('cartoon_play_13'),'click',cartoon_set_13);
+	
+	$$e.add($$('cartoon_play_14'),'click',cartoon_set_14);
+	$$e.add($$('cartoon_play_15'),'click',cartoon_set_15);
+	
+	//устанавливаю размер шрифта
+	$$('cartoon_play_1','cursor','pointer').$$('fontSize','12px').$$().$$('cartoon_play_2','cursor','pointer').$$('fontSize','12px').$$().$$('cartoon_play_3','cursor','pointer').$$('fontSize','12px');
+	$$('cartoon_play_4','cursor','pointer').$$('fontSize','12px').$$().$$('cartoon_play_5','cursor','pointer').$$('fontSize','12px').$$().$$('cartoon_play_6','cursor','pointer').$$('fontSize','12px');
+	$$('cartoon_play_7','cursor','pointer').$$('fontSize','12px').$$().$$('cartoon_play_8','cursor','pointer').$$('fontSize','12px').$$().$$('cartoon_play_9','cursor','pointer').$$('fontSize','12px');
+	$$('cartoon_play_10','cursor','pointer').$$('fontSize','12px').$$().$$('cartoon_play_11','cursor','pointer').$$('fontSize','12px').$$().$$('cartoon_play_12','cursor','pointer').$$('fontSize','12px');
+	$$('cartoon_play_13','cursor','pointer').$$('fontSize','12px').$$().$$('cartoon_play_14','cursor','pointer').$$('fontSize','12px').$$().$$('cartoon_play_15','cursor','pointer').$$('fontSize','12px');
+});
+</script>
+
+</body>
+
+</html>

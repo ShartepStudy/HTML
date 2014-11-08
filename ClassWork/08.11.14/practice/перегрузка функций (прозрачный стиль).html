@@ -1,0 +1,44 @@
+<script>
+
+function polymorph() {
+
+  var fa = []; // массив ссылок на функции!
+  // alert(arguments); // массив переданных аргументов в функцию polymorph
+  // alert(arguments[0]); // первая функция function(a, b) целиком (по сути, значение первого элемента массива)
+  
+  for(var i = 0; i < arguments.length; i++) { // arguments.length всегда = 3
+    if(typeof(arguments[i]) == "function") { // если аргумент является функцией
+		fa[arguments[i].length] = arguments[i];
+		//alert(arguments[i].length); // 2 3 или 4	
+		//alert(fa[arguments[i].length]); // тела трёх функций, по очереди - которые сохранились в массиве по индексам 2 3 4
+		//alert(arguments[i]);
+	}
+  }
+	  
+	  // отлично! функция, которая возвращает функцию!
+  return function() {
+  //alert(arguments.length); // 2 3 или 4
+  //alert(fa[arguments.length]); // тело функции 
+  
+    return fa[arguments.length].apply(this, arguments);
+  }
+  
+}
+
+var sum = polymorph(
+  function(a, b) {
+    return a + b;
+  },
+  function(a, b, c) {
+    return a + b + c;
+  },
+  function(a, b, c, d) {
+    return a + b + c + d;
+  }
+);
+
+//alert(sum(2,3));
+alert(sum(2,3,4));
+//alert(sum(2,3,4,5));
+
+</script>

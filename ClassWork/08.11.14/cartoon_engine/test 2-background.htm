@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Документ без названия</title>
+<script type="text/javascript" src="core_engine/scriptjava.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript" src="core_engine/cartoon_background.js"></script>
+
+
+<a href="http://scriptjava.net/" target="_blank" >
+	<div id="cartoon"></div>
+</a>
+
+
+<a href="http://scriptjava.net/" target="_blank" >
+	<div id="cartoon2"></div>
+</a>
+
+
+<script type="text/javascript">
+
+var cartoon_set_1 = function() {
+	var c_i1 = new cartoon_background();
+	c_i1.stop();
+	c_i1.play({
+			id:'cartoon',//id div элемента
+			src:'test_img/test.png',//ссылка на изображение
+			frames_x:60,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:12120,//ширина изображения
+			height:193,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:false,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+}();
+
+var cartoon_set_2 = function() {
+	var c_i2 = new cartoon_background();
+	c_i2.stop();
+	c_i2.play({
+			id:'cartoon2',//id div элемента
+			src:'test_img/test2.png',//ссылка на изображение
+			frames_x:33,//количество кадров на изображении по x
+			frames_y:1,//количество кадров на изображении по y
+			width:3729,//ширина изображения
+			height:180,//высота изображения
+			fps:24,//скорость показа кадров в секунду, можно писать дробные числа
+			reverse:false,//если true то проигрывается с конца в начало
+			playandstop:false,//если true то проиграть 1 раз и передать управление функции next
+			next: function () {//выполнится только если playandstop==true
+				//сюда можно пысать следующий код который будет выполняться после завершения анимации
+			}
+		});
+}();
+
+</script>
+</body>
+
+</html>

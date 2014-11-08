@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <script>
+
+      function AddWaffle() {
+         this.waffles = true;
+      }
+
+      function Squirrel() {
+         this.waffles = false;
+         this.addWaffle = AddWaffle;
+         return this;
+      }
+
+      function Tree() {
+
+         this.bugCount = 110;
+         this.rootCount = 1;
+         this.squirrel = new Squirrel();
+
+         return this;
+      }
+   </script>
+</head>
+<body>
+   <h2>
+      Script started here:
+   </h2>
+
+   <script>
+      var tree = new Tree();
+      tree.squirrel.addWaffle();
+      document.write(tree.squirrel.waffles);
+   </script>
+
+   <h2>
+      Script ended here:
+   </h2>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+   <script>
+      function Auto(marka, model) {
+         this.marka = marka;
+         this.model = model;
+         this.signal = signal;
+         this.show = show;
+         return this;
+      }
+
+      function signal() {
+         alert("bi-bi")
+      }
+
+      function show() {
+         alert(this.marka + " " + this.model)
+      }
+
+      var myCar = new Auto("Lada", "Kalina");
+      myCar.signal();
+      myCar.show();
+   </script>
+</head>
+<body>
+
+</body>
+</html>

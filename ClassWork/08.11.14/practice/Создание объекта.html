@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Создание объекта</title>
+<script type="text/javascript">
+function SetSignal(){
+	return "Пиу-пиу-пиу-пиу";
+}
+function Automobile(sVendor,sModel){
+	this.vendor = sVendor; // свойства - производитель и модель
+    this.model = sModel;
+	this.signal = SetSignal(); // метод - сигнализация, торможение или ускорение
+    return this;
+}
+</script>
+</head>
+<body>
+<script type="text/javascript">
+var myauto=new Automobile("BMW","X5");
+alert(myauto.vendor);
+alert(myauto.model);
+alert(myauto.signal);
+</script>
+</body>
+</html>

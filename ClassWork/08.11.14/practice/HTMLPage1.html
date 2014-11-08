@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+   <script>
+
+      //Создаем наш объект
+      var MyObject = new Object();
+      // var MyObject = {}
+
+      //Переменные
+      MyObject.id = 5; // Число
+      // MyObject["id"] = 5
+      MyObject.name = "Sample"; // Строка
+
+      //Функции
+      MyObject.getName = function () {
+         return this.name;
+      }
+
+      //Используем наш объект
+    //  alert(MyObject.getName());
+
+
+
+
+      //Создаем наш объект с использованием литеральной нотации
+      MyObject2 = {
+         id: 1,
+         name: "Sample2",
+         boolval: true,
+         getName: function () {
+            return this.name;
+         }
+      }
+
+      //Используем наш объект
+  //    alert(MyObject2.getName());
+
+
+
+      function MyObject3(id, name) {
+         this.id = id;
+         this.name = name;
+      }
+
+      var MyFirstObjectInstance = new MyObject3(5, "Sample3");
+      var MySecondObjectInstace = new MyObject3(12, "Other Sample");
+//      alert(MyFirstObjectInstance.name);
+
+
+
+      function MyObject4(id, name) {
+         this._id = id;
+         this._name = name;
+         this.defaultvalue = "MyDefaultValue";
+
+         //Получение текущего значения
+         this.getDefaultValue = function () {
+            return this.defaultvalue;
+         }
+
+         //Установка нового значения
+         this.setDefaultValue = function (newvalue) {
+            this.defaultvalue = newvalue;
+         }
+
+         //Произвольная функция
+         this.sum = function (a, b) {
+            return (a + b);
+         }
+      }
+      var obj = new MyObject4(4, "Sample4");
+      //alert(obj.sum(3, 4));
+
+
+      function MyObject5(id, name) {
+         this._id = id;
+         this._name = name;
+         this.defaultvalue = "MyDefaultValue";
+
+         //Получение текущего значения
+         this.getDefaultValue = function () {
+            return this.defaultvalue;
+         }
+
+         //Установка нового значения
+         this.setDefaultValue = function (newvalue) {
+            this.defaultvalue = newvalue;
+         }
+
+         //Произвольная функция
+         this.sum = function (a, b) {
+            return (a + b);
+         }
+      }
+
+      var o = new MyObject4(18, "Alex")
+
+      for (var key in o) {
+         //alert(key + ':' + o[key])
+      }
+
+
+
+
+
+      var ladder = {
+         step: 0,
+
+         up: function () {
+            this.step++;
+            return this;
+         },
+
+         down: function () {
+            this.step--;
+            return this;
+         },
+
+         showStep: function () {
+            alert(this.step);
+            return this;
+         }
+      }
+      ladder.up().up().down().up().down().showStep();
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+
+<script>
+
+// getRectangleArea(x1, y1, x2, y2) или
+// getRectangleArea(width, height)
+
+function getRectangleArea(x1, y1, x2, y2) {
+  if(arguments.length==2) return x1*y1;
+  return (x2-x1)*(y2-y1);
+}
+
+alert(getRectangleArea(5,7));
+alert(getRectangleArea(1,1,7,7));
+
+</script>
