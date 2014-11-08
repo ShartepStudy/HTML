@@ -1,0 +1,35 @@
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="4.css">
+</head>
+<body>
+
+<div id="gallery">
+<div id="big"><img src="images/gal/start.jpg" alt="Старт" /></div>
+<div id="small">
+<a href="images/gal/1.jpg"><img src="images/gal/1_mini.jpg" alt="Миниатюра 1" /></a>
+<a href="images/gal/2.jpg"><img src="images/gal/2_mini.jpg" alt="Миниатюра 2" /></a>
+<a href="images/gal/3.jpg"><img src="images/gal/3_mini.jpg" alt="Миниатюра 3" /></a>
+<a href="images/gal/4.jpg"><img src="images/gal/4_mini.jpg" alt="Миниатюра 4" /></a>
+</div>
+</div>
+
+<script src="jquery.js"></script>
+
+<script>
+
+$("#small a").click(function(e){
+	e.preventDefault();
+	$("#big img").hide().attr("src",$(this).attr("href"));
+	$("#big img").load(function(){
+		$(this).fadeIn(2000);
+	});
+	
+});
+
+
+</script>
+
+</body>
+</html>

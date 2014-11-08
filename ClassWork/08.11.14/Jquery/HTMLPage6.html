@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+   <script src="jquery.js"></script>
+   <script src="js/jQuery.BlackAndWhite.js"></script>
+</head>
+<body>
+   <style>
+      .bwWrapper {
+         position: relative;
+         display: block;
+      }      
+   </style>
+   
+   <div class="bwWrapper">
+      <img src="moto3.jpg" width="400" alt="" />
+   </div>
+
+   <script>
+      $(document).ready(function(){
+         $('.bwWrapper').BlackAndWhite();
+      });
+
+      $(document).ready(function(){
+         $('.bwWrapper').BlackAndWhite({
+               hoverEffect: true
+         });
+      });
+
+
+   </script>
+</body>
+</html>

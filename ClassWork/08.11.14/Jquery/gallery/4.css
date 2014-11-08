@@ -1,0 +1,27 @@
+#gallery {
+    padding: 20px;
+    border:1px solid #cccccc;
+    width: 483px;
+    margin: 10px auto;
+    height: 380px;
+}
+
+#big {
+    background-image: url("images/gal/loader.gif");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 483px;
+    height: 302px;
+    border:1px dotted #cccccc;
+    }
+
+#small {
+    margin-top: 10px;
+    margin-left: 33px;
+     
+}
+
+#small a img{
+    border:none;
+     
+}
