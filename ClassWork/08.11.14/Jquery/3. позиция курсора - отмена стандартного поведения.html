@@ -1,0 +1,29 @@
+<body>
+
+<h1>заголовок 1</h1>
+<h1>заголовок 2</h1>
+<h1>заголовок 3</h1>
+
+<p>абзац 1</p>
+<p>абзац 2</p>
+<p>абзац 3</p>
+
+<a href="http://yandex.ru/">ссылка 1</a><br>
+<a href="http://google.ru/">ссылка 2</a><br>
+<a href="http://vkontakte.ru/">ссылка 3</a>
+
+<script src="jquery.js"></script>
+
+<script>
+
+$("body").click(function(e){
+	alert(e.screenX + " " + e.screenY);
+	alert(e.pageX + " " + e.pageY);
+	alert(e.target);
+	e.preventDefault();
+	
+});
+
+</script>
+
+</body>

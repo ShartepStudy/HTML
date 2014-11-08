@@ -1,0 +1,31 @@
+<html>
+<head>
+<style>
+.icl{
+	position: absolute;
+	left: 200px;
+	top:200px;
+}
+</style>
+</head>
+<body>
+
+<img src="sh.jpg"/>
+<img src="sh.jpg" />
+
+<script src="jquery.js"></script>
+
+<script>
+var el = $("img");
+el.attr("height", 200);
+alert(el.attr("height"));
+
+el.removeAttr("height");
+
+//el.addClass("icl");
+//el.removeClass("icl");
+
+</script>
+
+</body>
+</html>

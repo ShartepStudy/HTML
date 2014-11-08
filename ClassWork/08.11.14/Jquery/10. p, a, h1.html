@@ -1,0 +1,22 @@
+
+<h1>заголовок 1</h1>
+<h1 align="left">заголовок 2</h1>
+<h1 align="center">заголовок 3</h1>
+
+<p>абзац 1</p>
+<p align="left">абзац 2</p>
+<p>абзац 3</p>
+
+<a href="#">ссылка 1</a><br>
+<a align="left" href="#">ссылка 2</a><br>
+<a href="#">ссылка 3</a>
+
+<script src="jquery.js"></script>
+
+<script>
+
+$("h1, p ,a").hide(2000);
+
+$("h1[align*=n], p[align], a[align]").show(2000);
+
+</script>

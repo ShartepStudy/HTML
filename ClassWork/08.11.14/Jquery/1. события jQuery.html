@@ -1,0 +1,20 @@
+
+<img src="moto1.jpg"/>
+<img src="moto2.jpg"/>
+<img src="moto3.jpg"/>
+<img src="moto4.jpg"/>
+
+<script src="jquery.js"></script>
+
+<script>
+
+$("img").click(function(){
+	//alert("click!");
+	$("body").append($(this).clone());
+});
+
+$(window).scroll(function(){
+	alert("scroll!");
+});
+
+</script>

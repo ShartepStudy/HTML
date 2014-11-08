@@ -1,0 +1,23 @@
+<input type="button" value="Click!"></input><br>
+
+<img src="moto1.jpg"/>
+<img src="moto1.jpg"/>
+<img src="moto1.jpg"/>
+
+<script src="jquery.js"></script>
+
+<script>
+
+$("img").hover(function(){
+	$(this).attr("src","moto3.jpg");
+},function(){
+	$(this).attr("src","moto2.jpg");
+});
+
+$("input").toggle(function(){
+	$("img").hide(2000);
+},function(){
+	$("img").show(2000);
+});
+
+</script>

@@ -1,0 +1,21 @@
+<div id="d1">
+<p>אבחאצ 1</p>
+<p>אבחאצ 2</p>
+<p>אבחאצ 3</p>
+<p>אבחאצ 4</p>
+<p>אבחאצ 5</p>
+</div>
+
+<script src="jquery.js"></script>
+
+<script>
+
+var el = $("#d1");
+var d = el.clone();
+el.before(d);
+
+var p = $("p").get(0);
+var save = $(p).remove();
+el.after(save);
+
+</script>
