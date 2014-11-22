@@ -1,1 +1,8 @@
 http://habrahabr.ru/post/76485/
+http://jqueryui.com/animate/
+http://api.jquery.com/nth-child-selector/
+http://api.jquery.com/category/selectors/
+http://habrahabr.ru/post/124327/
+http://api.jquery.com/category/Events/
+http://ruseller.com/jqueryshpora.php
+http://www.html5rocks.com/ru/tutorials/dnd/basics/
