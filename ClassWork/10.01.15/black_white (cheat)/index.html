@@ -1,0 +1,117 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Черно-белая галерея на JQUERY</title>
+<style type="text/css">
+
+* {
+margin: 0;
+padding: 0;
+}
+
+#container {
+margin: 0 auto;
+width: 1000px;
+}
+
+a.back {
+text-decoration: none;
+background: #333;
+padding: 15px;
+text-align: center;
+color: #fff;
+}
+
+a.back:hover {
+color: #fff;
+background: #999;
+}
+
+ul.photo {
+list-style-type:none;
+width: 1000px;
+}	
+
+ul.photo li {
+float: left;
+border: 1px solid #999;
+padding: 4px;
+display; block;
+margin-left: 10px;
+}
+
+ul.photo li a.auto {
+width: 300px;
+height: 225px;
+cursor: pointer;
+}
+
+ul.photo li a.auto:hover {
+background: #333;
+}
+
+li a.auto span {
+width: 300px;
+height: 225px;
+overflow: hidden;
+display: block;
+}
+
+h2{
+background: #999;
+padding: 5px;
+margin: 0;
+color: #fff;
+text-align: center;
+text-shadow: 1px 1px 1px #000;
+}
+
+li a {
+display: block;
+}
+
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+	
+$(document).ready(function() {
+	$('ul.photo li').hover(function() {
+		var ourImage = $(this).find('img').attr('src'); // нашли нашу картинку 
+		
+		$(this).find('a.auto').css({'background' : 'url('+ ourImage +') no-repeat center bottom'}); // установили картинку
+		
+		$(this).find('span').stop().fadeTo('normal', 0, function(){
+		 $(this).hide();	
+		})
+		}, function(){
+		$(this).find('span').stop().fadeTo('normal', 1).show();
+	});
+	
+
+});
+	
+	
+	
+</script>
+</head>
+
+<body>
+
+<div id="container">
+<ul class="photo">
+		<li><a href="#" class="auto"><span><img src="images/delorean.jpg"></span></a>
+		<h2>Автомобиль #1</h2>
+		</li>
+		
+		<li><a href="#" class="auto"><span><img src="images/retro_car.jpg"></span></a>
+		<h2>Автомобиль #2</h2>
+		</li>
+		
+		<li><a href="#" class="auto"><span><img src="images/retro_car_2.jpg"></span></a>
+		<h2>Автомобиль #3</h2>
+		</li>
+		
+</ul>
+
+</body>
+</html>
